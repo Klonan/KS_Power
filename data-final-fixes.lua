@@ -1,13 +1,23 @@
 local fuel_values = {
   ["light-oil"] = "3MJ",
   ["heavy-oil"] = "2MJ",
-  ["petroleum-gas"] = "1MJ",
+  ["petroleum-gas"] = "3MJ",
   ["diesel-fuel"] = "4MJ",
+}
+
+local emissions = {
+  ["light-oil"] = 1.1,
+  ["heavy-oil"] = 1.2,
+  ["petroleum-gas"] = 1,
+  ["diesel-fuel"] = 0.8,
 }
 
 for k, fluid in pairs (data.raw.fluid) do
   if not fluid.fuel_value then
     fluid.fuel_value = fuel_values[fluid.name]
+  end
+  if not fluid.emissions_multiplier then
+    fluid.emissions_multiplier = emissions[fluid.name]
   end
 end
 

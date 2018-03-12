@@ -123,8 +123,7 @@ boiler.name = "burner-generator"
 boiler.fluid_box.pipe_connections = {}
 boiler.fluid_box.base_area = 1.5
 boiler.energy_consumption = "451kW"
-boiler.output_fluid_box.pipe_connections = {}
-boiler.fluid_box.bas_area = 1.5
+boiler.minable = {mining_time = 1, result = "burner-generator"}
 boiler.structure.north = 
 {
   layers = 

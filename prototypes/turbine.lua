@@ -73,6 +73,7 @@ data:extend({
       },
       max_sounds_per_type = 5
     },
+    render_no_power_icon = false
   },
 
 })

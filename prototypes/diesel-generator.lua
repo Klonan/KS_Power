@@ -37,6 +37,7 @@ data:extend({
 		effectivity = 1,
     fluid_usage_per_tick = 1/60,
     burns_fluid = true,
+    scale_fluid_usage = true,
     maximum_temperature = 1000, --not needed...
 		resistances =
 		{
@@ -63,7 +64,8 @@ data:extend({
 		energy_source =
 		{
 			type = "electric",
-			usage_priority = "secondary-output"
+      usage_priority = "secondary-output",
+      emissions = 3
 		},
     vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
 		horizontal_animation =

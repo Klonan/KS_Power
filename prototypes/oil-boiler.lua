@@ -45,7 +45,8 @@
     main_product= "",
     icon = "__KS_Power__/graphics/icons/burn-crude-oil.png",
     icon_size = 32,
-    subgroup = "fluid-recipes"
+    subgroup = "fluid-recipes",
+    emissions_multiplier = 1.2
   },
   {
     type = "recipe",
@@ -66,7 +67,8 @@
     main_product= "",
     icon = "__KS_Power__/graphics/icons/burn-heavy-oil.png",
     icon_size = 32,
-    subgroup = "fluid-recipes"
+    subgroup = "fluid-recipes",
+    emissions_multiplier = 1.1
   },
   {
     type = "recipe",
@@ -177,7 +179,7 @@
             {
               type = "electric",
               usage_priority = "secondary-input",
-              emissions = 4 / 4,
+              emissions = 4,
             },
             energy_usage = "30kW",
             ingredient_count = 3,
