@@ -57,7 +57,7 @@ data:extend({
 			frame_count = 20,
 			line_length = 5,
 			shift = {1.7,-1.4},
-      animation_speed = 0.01
+      animation_speed = 0.005
 		},
     vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65},
     working_sound =
