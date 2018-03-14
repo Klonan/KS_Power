@@ -44,7 +44,8 @@ data:extend({
       buffer_capacity = "1kJ",
       usage_priority = "primary-output",
       input_flow_limit = "0kW",
-      output_flow_limit = "30kW"
+      output_flow_limit = "30kW",
+      render_no_power_icon = false
     },
     energy_production = "0kW",
     energy_usage = "0kW",
@@ -73,7 +74,6 @@ data:extend({
       },
       max_sounds_per_type = 5
     },
-    render_no_power_icon = false
   },
 
 })
