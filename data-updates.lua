@@ -1,4 +1,5 @@
 local fuel_values = {
+  ["crude-oil"] = "2.5MJ",
   ["light-oil"] = "3MJ",
   ["heavy-oil"] = "2MJ",
   ["petroleum-gas"] = "3MJ",
@@ -6,6 +7,7 @@ local fuel_values = {
 }
 
 local emissions = {
+  ["crude-oil"] = 1.35,
   ["light-oil"] = 1.1,
   ["heavy-oil"] = 1.2,
   ["petroleum-gas"] = 1,
@@ -54,7 +56,7 @@ for k, fluid in pairs (data.raw.fluid) do
       name = "burn-"..fluid.name,
       energy_required = 1,
       enabled = "false",
-      order = "c[fluid-chemistry]-"..fluid.order,
+      order = fluid.order or fluid.name,
       category = "OilBurn",
       ingredients =
       {
@@ -64,7 +66,6 @@ for k, fluid in pairs (data.raw.fluid) do
       results =
       {
         {type="fluid", name="steam", amount=90, temperature = 165}
-
       },
       main_product= "",
       icons = {
