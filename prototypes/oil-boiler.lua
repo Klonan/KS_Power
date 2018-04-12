@@ -21,75 +21,8 @@
       {"steel-plate", 12},
       {"pipe", 10},
       {"concrete", 6},
-
     },
     result = "OilSteamBoiler"
-  },
-  {
-    type = "recipe",
-    name = "burn-crude-oil",
-    energy_required = 1,
-    enabled = "false",
-    order = "b[fluid-chemistry]-f",
-    category = "OilBurn",
-    ingredients =
-    {
-      {type="fluid", name="water", amount=60},
-      {type="fluid", name="crude-oil", amount=3.6/1.25},
-    },
-    results =
-    {
-      {type="fluid", name="steam", amount=60, temperature = 315}
-
-    },
-    main_product= "",
-    icon = "__KS_Power__/graphics/icons/burn-crude-oil.png",
-    icon_size = 32,
-    subgroup = "fluid-recipes",
-    emissions_multiplier = 1.2
-  },
-  {
-    type = "recipe",
-    name = "burn-heavy-oil",
-    energy_required = 1,
-    enabled = "false",
-    order = "b[fluid-chemistry]-g",
-    category = "OilBurn",
-    ingredients =
-    {
-      {type="fluid", name="water", amount=60},
-      {type="fluid", name="heavy-oil", amount=3.6/1.25},
-    },
-    results =
-    {
-      {type="fluid", name="steam", amount=60, temperature = 315}
-    },
-    main_product= "",
-    icon = "__KS_Power__/graphics/icons/burn-heavy-oil.png",
-    icon_size = 32,
-    subgroup = "fluid-recipes",
-    emissions_multiplier = 1.1
-  },
-  {
-    type = "recipe",
-    name = "burn-light-oil",
-    energy_required = 1,
-    enabled = "false",
-    order = "b[fluid-chemistry]-h",
-    category = "OilBurn",
-    ingredients =
-    {
-      {type="fluid", name="water", amount=60},
-      {type="fluid", name="light-oil", amount=3.6/2.5},
-    },
-    results =
-    {
-      {type="fluid", name="steam", amount=60, temperature = 315}
-    },
-    main_product= "",
-    icon = "__KS_Power__/graphics/icons/burn-light-oil.png",
-    icon_size = 32,
-    subgroup = "fluid-recipes"
   },
   {
     type = "assembling-machine",
@@ -178,8 +111,8 @@
             energy_source =
             {
               type = "electric",
-              usage_priority = "secondary-input",
-              emissions = 4,
+              usage_priority = "primary-input",
+              emissions = 4/1000,
             },
             energy_usage = "30kW",
             ingredient_count = 3,
@@ -189,64 +122,29 @@
             {
               {
                 production_type = "input",
-                --  pipe_covers = pipecoverspictures(),
                 base_area = 1,
                 base_level = -1,
                 pipe_connections = {{ type="input", position = {-1, -2} }}
               },
               {
                 production_type = "input",
-                --  pipe_covers = pipecoverspictures(),
                 base_area = 1,
                 base_level = -1,
                 pipe_connections = {{ type="input", position = {1, -2} }}
               },
               {
                 production_type = "output",
-                --   pipe_covers = pipecoverspictures(),
                 base_level = 1,
                 pipe_connections = {{ position = {0, 2} }
               }
             },
           }
         },
-        {
-          type = "technology",
-          name = "OilBurning",
-          icon = "__KS_Power__/graphics/oil-boiler-tech2.png",
-          icon_size = 128,
-          effects =
-          {
-            {
-              type = "unlock-recipe",
-              recipe = "OilSteamBoiler"
-            },
-            {
-              type = "unlock-recipe",
-              recipe = "burn-crude-oil"
-            },
-            {
-              type = "unlock-recipe",
-              recipe = "burn-light-oil"
-            },
-            {
-              type = "unlock-recipe",
-              recipe = "burn-heavy-oil"
-            },
-          },
-          prerequisites = {"oil-processing","concrete"},
-          unit =
-          {
-            count = 200,
-            ingredients =
-            {
-              {"science-pack-1", 1},
-              {"science-pack-2", 1}
-            },
-            time = 30
-          },
-          order = "f-b-c",
-        },
-
         {type = "recipe-category", name = "OilBurn"},
+        {
+          type = "item-subgroup",
+          name = "oil-burning",
+          group = "intermediate-products",
+          order = "a-z"
+        },
       })
