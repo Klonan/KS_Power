@@ -49,7 +49,12 @@ for k, fluid in pairs (data.raw.fluid) do
   if not fluid.emissions_multiplier then
     fluid.emissions_multiplier = emissions[fluid.name]
   end
-  if fluid.fuel_value then 
+  if fluid.fuel_value then
+    local icons = fluid.icons or {}
+    if fluid.icon then
+      table.insert(icons, {icon = fluid.icon})
+    end
+    table.insert(icons, {icon = "__KS_Power__/graphics/icons/fire-icon.png"})
     data:extend({
     {
       type = "recipe",
@@ -72,7 +77,7 @@ for k, fluid in pairs (data.raw.fluid) do
         {icon = fluid.icon},
         {icon = "__KS_Power__/graphics/icons/fire-icon.png"},
       },
-      icon_size = fluid.icon_size,
+      icon_size = fluid.icon_size or 32--[[??]],
       subgroup = "oil-burning",
       emissions_multiplier = fluid.emissions_multiplier,
       localised_name = {"burn", fluid.localised_name or {"fluid-name."..fluid.name}}

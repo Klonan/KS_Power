@@ -1,3 +1,5 @@
+--todo (sigh), this is old spaghetti, maybe make it fresh, use a map of unit number and next() to clean it up...
+
 function check_interfaces()
   local count = global.wind_interfaces_index
   if not count then count = 1 end
@@ -50,22 +52,11 @@ function tick_wind()
 
   global.wind_day = global.wind_day or 1
   global.wind_hour = global.wind_hour or 0.02
-  
+
+  local nv = global.wind_hour * global.wind_day
   for k, s in pairs(game.surfaces) do
-    local nv = global.wind_hour * global.wind_day
     local v = s.wind_speed
-    if v ~= nil then
-      if nv > v then
-        dv = (nv-v)/45
-        s.wind_speed = v + dv
-      end
-      
-      if nv < v then
-        dv = (v-nv)/45
-        s.wind_speed = v - dv
-      end
-    end
+    dv = (nv-v)/45
+    s.wind_speed = v + dv
   end
 end
-
-
