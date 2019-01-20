@@ -6,7 +6,7 @@ data:extend({
     name = "burner-generator",
     icon = "__KS_Power__/graphics/icons/burner-generator-icon.png",
     icon_size = 32,
-    flags = {"goes-to-quickbar"},
+    flags = {},
     subgroup = "energy",
     order = "b[steam-power]-c[burner-generator]",
     place_result = "burner-generator",
@@ -17,7 +17,7 @@ data:extend({
     name = "burner-generator-power",
     icon = "__KS_Power__/graphics/icons/burner-generator-icon.png",
     icon_size = 32,
-    flags = {"goes-to-quickbar"},
+    flags = {},
     subgroup = "inserter",
     order = "d-j",
     place_result = "burner-generator-power",
@@ -48,7 +48,7 @@ data:extend({
     corpse = "small-remnants",
     effectivity = 1,
     fluid_usage_per_tick = 0.25,
-    resistances = 
+    resistances =
     {
       {
         type = "fire",
@@ -124,9 +124,9 @@ boiler.fluid_box.pipe_connections = {}
 boiler.fluid_box.base_area = 1.5
 boiler.energy_consumption = "451kW"
 boiler.minable = {mining_time = 1, result = "burner-generator"}
-boiler.structure.north = 
+boiler.structure.north =
 {
-  layers = 
+  layers =
   {
     {
       filename = "__KS_Power__/graphics/entity/burner-generator-h.png",
@@ -138,10 +138,10 @@ boiler.structure.north =
   }
 }
 boiler.structure.south = boiler.structure.north
-boiler.structure.east = 
+boiler.structure.east =
 {
-  layers = 
-  { 
+  layers =
+  {
     {
     filename = "__KS_Power__/graphics/entity/burner-generator-v.png",
     priority = "extra-high",
@@ -153,7 +153,7 @@ boiler.structure.east =
 }
 boiler.structure.west = boiler.structure.east
 boiler.patch = nil
-boiler.fire.north = 
+boiler.fire.north =
 {
   filename = "__KS_Power__/graphics/entity/boiler-fire-down.png",
   priority = "extra-high",
@@ -165,7 +165,7 @@ boiler.fire.north =
   direction_count = 1,
   shift = util.by_pixel(5,17)
 }
-boiler.fire.east = 
+boiler.fire.east =
 {
   filename = "__KS_Power__/graphics/entity/boiler-fire-down.png",
   priority = "extra-high",

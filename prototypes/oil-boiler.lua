@@ -1,18 +1,18 @@
  data:extend({
   {
     type = "item",
-    name = "OilSteamBoiler",
-    icon = "__KS_Power__/graphics/icons/OilSteamBoiler.png",
+    name = "oil-steam-boiler",
+    icon = "__KS_Power__/graphics/icons/oil-steam-boiler.png",
     icon_size = 32,
-    flags = {"goes-to-quickbar"},
-    subgroup = "production-machine",
-    order = "f[OilSteamBoiler]",
-    place_result = "OilSteamBoiler",
+    flags = {},
+    subgroup = "energy",
+    order = "f[oil-steam-boiler]",
+    place_result = "oil-steam-boiler",
     stack_size = 10
   },
   {
     type = "recipe",
-    name = "OilSteamBoiler",
+    name = "oil-steam-boiler",
     enabled = false,
     energy_required = 15,
     ingredients =
@@ -22,27 +22,118 @@
       {"pipe", 10},
       {"concrete", 6},
     },
-    result = "OilSteamBoiler"
+    result = "oil-steam-boiler"
   },
   {
-    type = "assembling-machine",
-    name = "OilSteamBoiler",
-    icon = "__KS_Power__/graphics/icons/OilSteamBoiler.png",
+    type = "boiler",
+    name = "oil-steam-boiler",
+    icon = "__KS_Power__/graphics/icons/oil-steam-boiler.png",
     icon_size = 32,
-    flags = {"placeable-neutral","placeable-player", "player-creation"},
-    minable = {hardness = 0.2, mining_time = 0.5, result = "OilSteamBoiler"},
+    flags = {"placeable-neutral", "player-creation"},
+    minable = {mining_time = 0.1, result = "oil-steam-boiler"},
     max_health = 200,
     corpse = "big-remnants",
     dying_explosion = "big-explosion",
     collision_box = {{-1.2, -1.2}, {1.2, 1.2}},
     selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
-    module_specification =
+    vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
+    mode = "output-to-separate-pipe",
+    resistances =
     {
-      module_slots = 2
+      {
+        type = "fire",
+        percent = 90
+      },
+      {
+        type = "explosion",
+        percent = 30
+      },
+      {
+        type = "impact",
+        percent = 30
+      }
     },
-    allowed_effects = {"consumption", "speed", "productivity", "pollution"},
-    animation =
+    target_temperature = 165,
+    fluid_box =
     {
+      base_area = 1,
+      height = 2,
+      base_level = -1,
+      --pipe_covers = pipecoverspictures(),
+      pipe_connections = {{ type="input", position = {1, -2} }},
+      production_type = "input",
+      filter = "water"
+    },
+    output_fluid_box =
+    {
+      base_area = 1,
+      height = 2,
+      base_level = 1,
+      --pipe_covers = pipecoverspictures(),
+      pipe_connections =
+      {
+        {type = "output", position = {0, 2}}
+      },
+      production_type = "output",
+      filter = "steam"
+    },
+    energy_consumption = "2.7MW",
+    energy_source =
+    {
+      type = "fluid",
+      emissions = 0.01,
+      burns_fluid = true,
+      fluid_usage_per_tick = 0,
+      scale_fluid_usage = true,
+      fluid_box =
+      {
+        base_area = 1,
+        height = 2,
+        base_level = -1,
+        --pipe_covers = pipecoverspictures(),
+        pipe_connections = {{ type="input", position = {-1, -2} }},
+        production_type = "input",
+      },
+    },
+    working_sound =
+    {
+      sound =
+      {
+        filename = "__KS_Power__/sounds/oil-boiler-loop-2.ogg",
+        volume = 0.35
+      },
+      idle_sound = { filename = "__KS_Power__/sounds/steam-offlet.ogg", volume = 0.35 },
+      max_sounds_per_type = 2,
+    },
+
+    structure =
+    {
+      north =
+      {
+        priority = "extra-high",
+        width = 256,
+        height = 223,
+        line_length = 8,
+        shift = {0.5, 0},
+        filename = "__KS_Power__/graphics/ob_n_sheet.png",
+        frame_count = 8,
+        animation_speed = 0.4,
+        scale = 0.5,
+        run_mode = "forward-then-backward",
+      },
+      east =
+      {
+        priority = "extra-high",
+        width = 256,
+        height = 175,
+        line_length = 8,
+        shift = {0.45, 0},
+        filename = "__KS_Power__/graphics/ob_w_sheet.png",
+        frame_count = 8,
+        animation_speed = 0.4,
+        scale = 0.5,
+        run_mode = "forward-then-backward",
+      },
       south =
       {
         priority = "extra-high",
@@ -55,96 +146,47 @@
         animation_speed = 0.4,
         scale = 0.5,
         run_mode = "forward-then-backward",
-        },
-        north =
-        {
-          priority = "extra-high",
-          width = 256,
-          height = 223,
-          line_length = 8,
-          shift = {0.5, 0},
-          filename = "__KS_Power__/graphics/ob_n_sheet.png",
-          frame_count = 8,
-          animation_speed = 0.4,
-          scale = 0.5,
-          run_mode = "forward-then-backward",
-          },
-          east =
-          {
-            priority = "extra-high",
-            width = 256,
-            height = 175,
-            line_length = 8,
-            shift = {0.45, 0},
-            filename = "__KS_Power__/graphics/ob_w_sheet.png",
-            frame_count = 8,
-            animation_speed = 0.4,
-            scale = 0.5,
-            run_mode = "forward-then-backward",
-            },
-            west =
-            {
-              priority = "extra-high",
-              width = 256,
-              height = 173,
-              line_length = 8,
-              shift = {0.45, 0},
-              filename = "__KS_Power__/graphics/ob_e_sheet.png",
-              frame_count = 8,
-              animation_speed = 0.4,
-              scale = 0.5,
-              run_mode = "forward-then-backward",
-              }
-            },
-            working_sound =
-            {
-              sound =
-              {
-                filename = "__KS_Power__/sounds/oil-boiler-loop-2.ogg",
-                volume = 0.35
-              },
-              idle_sound = { filename = "__KS_Power__/sounds/steam-offlet.ogg", volume = 0.35 },
-              max_sounds_per_type = 2,
-            },
+      },
+      west =
+      {
+        priority = "extra-high",
+        width = 256,
+        height = 173,
+        line_length = 8,
+        shift = {0.45, 0},
+        filename = "__KS_Power__/graphics/ob_e_sheet.png",
+        frame_count = 8,
+        animation_speed = 0.4,
+        scale = 0.5,
+        run_mode = "forward-then-backward",
+      }
+    },
+    fire = {},
+    fire_glow = {},
+    burning_cooldown = 20
+  }
+})
 
-            crafting_speed = 1,
-            energy_source =
-            {
-              type = "electric",
-              usage_priority = "primary-input",
-              emissions = 4/1000,
-            },
-            energy_usage = "30kW",
-            ingredient_count = 3,
-            crafting_categories = {"OilBurn"},
-
-            fluid_boxes =
-            {
-              {
-                production_type = "input",
-                base_area = 1,
-                base_level = -1,
-                pipe_connections = {{ type="input", position = {-1, -2} }}
-              },
-              {
-                production_type = "input",
-                base_area = 1,
-                base_level = -1,
-                pipe_connections = {{ type="input", position = {1, -2} }}
-              },
-              {
-                production_type = "output",
-                base_level = 1,
-                pipe_connections = {{ position = {0, 2} }
-              }
-            },
-          }
-        },
-        {type = "recipe-category", name = "OilBurn"},
-        {
-          type = "item-subgroup",
-          name = "oil-burning",
-          group = "intermediate-products",
-          order = "a-z"
-        },
-      })
+data:extend({{
+  type = "technology",
+  name = "OilBurning",
+  icon = "__KS_Power__/graphics/oil-boiler-tech2.png",
+  icon_size = 128,
+  effects ={
+  {
+    type = "unlock-recipe",
+    recipe = "oil-steam-boiler"
+  }},
+  prerequisites = {"oil-processing","concrete"},
+  unit =
+  {
+    count = 200,
+    ingredients =
+    {
+      {"automation-science-pack", 1},
+      {"logistic-science-pack", 1}
+    },
+    time = 30
+  },
+  order = "f-b-c",
+}})

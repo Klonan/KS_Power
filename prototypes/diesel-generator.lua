@@ -4,9 +4,9 @@ data:extend({
 		name = "petroleum-generator",
 		icon = "__KS_Power__/graphics/diesel-generator-icon.png",
     icon_size = 32,
-		flags = {"goes-to-quickbar"},
-		subgroup = "energy",	
-		order = "b[steam-power]-d[petroleum-generator]",		
+		flags = {},
+		subgroup = "energy",
+		order = "b[steam-power]-d[petroleum-generator]",
 		place_result = "petroleum-generator",
 		stack_size = 20,
 	},
@@ -51,7 +51,7 @@ data:extend({
 		fluid_box =
 		{
 			base_area = 1,
-      base_level = -1,			
+      base_level = -1,
       height = 2,
       pipe_covers = pipecoverspictures(),
       production_type = "input-output",
@@ -92,7 +92,7 @@ data:extend({
         flags = {"no-crop"},
         animation_speed = 0.8,
         scale = 0.5,
-      },			
+      },
       smoke =
       {
         {
@@ -133,7 +133,7 @@ data:extend({
         match_speed_to_activity = true,
         max_sounds_per_type = 2,
       },
-      
+
       min_perceived_performance = 0.4,
       performance_to_sound_speedup = 0.2
     },
@@ -178,7 +178,7 @@ data:extend({
       unit =
       {
         count = 150,
-        ingredients = {{"science-pack-1", 1},{"science-pack-2", 1},{"science-pack-3", 1}},
+        ingredients = {{"automation-science-pack", 1},{"logistic-science-pack", 1},{"chemical-science-pack", 1}},
         time = 60
       },
       order = "f-b-d"
@@ -199,4 +199,3 @@ data:extend({
       flow_to_energy_ratio = 0.59,
     }
 	})
-  

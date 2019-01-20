@@ -1,15 +1,15 @@
 local fuel_values = {
-  ["crude-oil"] = "2.5MJ",
-  ["light-oil"] = "3MJ",
-  ["heavy-oil"] = "2MJ",
-  ["petroleum-gas"] = "3MJ",
-  ["diesel-fuel"] = "4MJ",
+  ["crude-oil"] = "1.4MJ",
+  ["light-oil"] = "1.5MJ",
+  ["heavy-oil"] = "1MJ",
+  ["petroleum-gas"] = "1.5MJ",
+  ["diesel-fuel"] = "2MJ",
 }
 
 local emissions = {
-  ["crude-oil"] = 1.35,
-  ["light-oil"] = 1.1,
-  ["heavy-oil"] = 1.2,
+  ["crude-oil"] = 1.4,
+  ["light-oil"] = 1.2,
+  ["heavy-oil"] = 1.3,
   ["petroleum-gas"] = 1,
   ["diesel-fuel"] = 0.8,
 }
@@ -48,79 +48,5 @@ for k, fluid in pairs (data.raw.fluid) do
   end
   if not fluid.emissions_multiplier then
     fluid.emissions_multiplier = emissions[fluid.name]
-  end
-  if fluid.fuel_value then
-    local icons = fluid.icons or {}
-    if fluid.icon then
-      table.insert(icons, {icon = fluid.icon, icon_size = fluid.icon_size})
-    end
-    table.insert(icons, {icon = "__KS_Power__/graphics/icons/fire-icon-big.png", icon_size = 358})
-    data:extend({
-    {
-      type = "recipe",
-      name = "burn-"..fluid.name,
-      energy_required = 1,
-      enabled = "false",
-      order = fluid.order or fluid.name,
-      category = "OilBurn",
-      ingredients =
-      {
-        {type="fluid", name= "water", amount = 90},
-        {type="fluid", name= fluid.name, amount = 3600000 / parse_energy(fluid.fuel_value)},
-      },
-      results =
-      {
-        {type="fluid", name="steam", amount=90, temperature = 165}
-      },
-      main_product= "",
-      icons = icons,
-      subgroup = "oil-burning",
-      emissions_multiplier = fluid.emissions_multiplier,
-      localised_name = {"burn", fluid.localised_name or {"fluid-name."..fluid.name}}
-    }
-    })
-    table.insert(names, "burn-"..fluid.name)
-  end
-end
-
-local effects = {
-{
-  type = "unlock-recipe",
-  recipe = "OilSteamBoiler"
-}}
-
-for k, name in pairs (names) do
-  table.insert(effects,
-  {
-    type = "unlock-recipe",
-    recipe = name
-  })
-end
-
-data:extend({{
-  type = "technology",
-  name = "OilBurning",
-  icon = "__KS_Power__/graphics/oil-boiler-tech2.png",
-  icon_size = 128,
-  effects = effects,
-  prerequisites = {"oil-processing","concrete"},
-  unit =
-  {
-    count = 200,
-    ingredients =
-    {
-      {"science-pack-1", 1},
-      {"science-pack-2", 1}
-    },
-    time = 30
-  },
-  order = "f-b-c",
-}})
-
-for k, module in pairs(data.raw.module) do
-  if module.effect and module.effect.productivity and module.limitation then
-    for j, recipe in pairs(names) do
-      table.insert(module.limitation, recipe)
-    end
   end
 end
