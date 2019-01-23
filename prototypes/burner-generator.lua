@@ -12,17 +12,6 @@ data:extend({
     place_result = "burner-generator",
     stack_size = 10
   },
-    {
-    type = "item",
-    name = "burner-generator-power",
-    icon = "__KS_Power__/graphics/icons/burner-generator-icon.png",
-    icon_size = 32,
-    flags = {},
-    subgroup = "inserter",
-    order = "d-j",
-    place_result = "burner-generator",
-    stack_size = 50
-  },
 
   {
     type = "recipe",
@@ -75,13 +64,17 @@ data:extend({
           --position = {0.05, 0.9},
           north_position = {0.05, 0.9},
           east_position = {0.05, 0.9},
+          starting_vertical_speed = 0.05,
         },
         {
           name = "burner-generator-smoke",
-          frequency = 30,
+          frequency = 60,
           --position = {0.05, 0.9},
           north_position = {0.05, 0.9},
           east_position = {0.05, 0.8},
+          starting_vertical_speed = 0.05,
+          starting_vertical_speed_deviation = 0.02,
+          deviation = {0.1, 0.1}
         },
       }
     },
@@ -147,7 +140,7 @@ data:extend({
     },
     min_perceived_performance = 0.25,
     performance_to_sound_speedup = 0.5,
-    max_power_output = "250kW",
+    max_power_output = "0.5MW",
   },
 
 }
