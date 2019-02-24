@@ -40,7 +40,7 @@ data:extend
   {
     type = "recipe",
     name = "big-burner-generator",
-    enabled = "true",
+    enabled = false,
     ingredients =
     {
       {"boiler", 1},
