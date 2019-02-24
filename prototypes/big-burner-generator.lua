@@ -43,10 +43,10 @@ data:extend
     enabled = false,
     ingredients =
     {
-      {"boiler", 1},
-      {"iron-plate", 4},
-      {"iron-gear-wheel", 5},
-      {"pipe", 4}
+      {"heat-exchanger", 4},
+      {"steel-plate", 50},
+      {"concrete", 100},
+      {"pump", 10}
     },
     result = "big-burner-generator"
   },
