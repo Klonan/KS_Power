@@ -35,7 +35,7 @@ data:extend(
       max_health = 300,
       corpse = "big-remnants",
       effectivity = 1,
-      fluid_usage_per_tick = 1 / 60,
+      fluid_usage_per_tick = 2 / 60,
       burns_fluid = true,
       scale_fluid_usage = true,
       maximum_temperature = 1000, --not needed...
