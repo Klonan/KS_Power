@@ -1,27 +1,23 @@
---require "util"
 require "scripts.turbine"
 
-script.on_event(defines.events.on_tick, function(event)
-  local t = event.tick
-  if (t % 24999) == 0 then
-    change_wind_day()
-  end
-  if (t % 2499) == 0 then
-    change_wind_hour()
-  end
-  if (t % 249) == 0 then
-    tick_wind()
-  end
-  check_interfaces()
-end)
-
-function BuiltEntity(event)
-  local entity = event.created_entity
+function built_entity(event)
+  game.print("WETGS")
+  local entity = event.created_entity or event.entity
 	if entity.name == "wind-turbine-2" then
     return built_interface(entity)
 	end
 end
 
 
-script.on_event(defines.events.on_built_entity, BuiltEntity)
-script.on_event(defines.events.on_robot_built_entity, BuiltEntity)
+script.on_event(defines.events.on_tick, function(event)
+  check_interfaces()
+end)
+
+script.on_nth_tick(24999, change_wind_day)
+script.on_nth_tick(2499, change_wind_hour)
+script.on_nth_tick(249, tick_wind)
+
+script.on_event(defines.events.on_built_entity, built_entity)
+script.on_event(defines.events.on_robot_built_entity, built_entity)
+script.on_event(defines.events.script_raised_revive, built_entity)
+script.on_event(defines.events.script_raised_built, built_entity)
