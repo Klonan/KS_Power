@@ -1,7 +1,6 @@
 require "scripts.turbine"
 
 function built_entity(event)
-  game.print("WETGS")
   local entity = event.created_entity or event.entity
 	if entity.name == "wind-turbine-2" then
     return built_interface(entity)
