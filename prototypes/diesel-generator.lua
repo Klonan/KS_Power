@@ -138,6 +138,12 @@ data:extend(
         {type = "fluid", name = "petroleum-gas", amount = 20},
         {type = "fluid", name = "light-oil", amount = 20}
       },
+      crafting_machine_tint = { 
+        primary = {r = 0.5, g = 0.4, b = 0}, 
+        secondary = {r = 0.5, g = 0.4, b = 0}, 
+        tertiary = {r = 0.5, g = 0.4, b = 0}, 
+        quaternary = {r = 0.5, g = 0.4, b = 0}
+      },
       results = {
         {type = "fluid", name = "diesel-fuel", amount = 30, temperature = 25}
       },
