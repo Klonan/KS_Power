@@ -27,7 +27,7 @@ data:extend({
     result = "burner-generator"
   },
   {
-    type = "generator",
+    type = "burner-generator",
     name = "burner-generator",
     icon = "__KS_Power__/graphics/icons/burner-generator-icon.png",
     icon_size = 32,
@@ -78,55 +78,46 @@ data:extend({
         },
       }
     },
-    horizontal_animation =
+    animation =
     {
-      layers =
+      north = 
       {
-
+        layers =
         {
-        filename = "__KS_Power__/graphics/entity/burner-generator-v.png",
-        priority = "extra-high",
-        width = 93,
-        height = 112,
-        shift = util.by_pixel(12, -0.5),
-        frame_count = 1
-        },
-        --{
-        --  filename = "__KS_Power__/graphics/entity/boiler-fire-down.png",
-        --  priority = "extra-high",
-        --  line_length = 8,
-        --  width = 21,
-        --  height = 34,
-        --  frame_count = 48,
-        --  axially_symmetrical = false,
-        --  direction_count = 1,
-        --  shift = util.by_pixel(3,11)
-        --}
-      }
-    },
-    vertical_animation =
-    {
-      layers =
+          {
+            filename = "__KS_Power__/graphics/entity/burner-generator-h.png",
+            priority = "extra-high",
+            width = 121,
+            height = 80,
+            shift = util.by_pixel(20, 4),
+            frame_count = 1
+          },
+          --{
+          --  filename = "__KS_Power__/graphics/entity/boiler-fire-down.png",
+          --  priority = "extra-high",
+          --  line_length = 8,
+          --  width = 21,
+          --  height = 34,
+          --  frame_count = 48,
+          --  axially_symmetrical = false,
+          --  direction_count = 1,
+          --  shift = util.by_pixel(5,17)
+          --}
+        }
+      },
+      east = 
       {
+        layers = 
         {
-          filename = "__KS_Power__/graphics/entity/burner-generator-h.png",
-          priority = "extra-high",
-          width = 121,
-          height = 80,
-          shift = util.by_pixel(20, 4),
-          frame_count = 1
-        },
-        --{
-        --  filename = "__KS_Power__/graphics/entity/boiler-fire-down.png",
-        --  priority = "extra-high",
-        --  line_length = 8,
-        --  width = 21,
-        --  height = 34,
-        --  frame_count = 48,
-        --  axially_symmetrical = false,
-        --  direction_count = 1,
-        --  shift = util.by_pixel(5,17)
-        --}
+          {
+            filename = "__KS_Power__/graphics/entity/burner-generator-v.png",
+            priority = "extra-high",
+            width = 93,
+            height = 112,
+            shift = util.by_pixel(12, -0.5),
+            frame_count = 1,
+          }
+        }
       }
     },
     working_sound =

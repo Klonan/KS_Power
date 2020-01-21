@@ -51,7 +51,7 @@ data:extend
     result = "big-burner-generator"
   },
   {
-    type = "generator",
+    type = "burner-generator",
     name = "big-burner-generator",
     icon = icon,
     icon_size = icon_size,
@@ -114,8 +114,7 @@ data:extend
         }
       }
     },
-    horizontal_animation = burner_picture,
-    vertical_animation = burner_picture,
+    animation = burner_picture,
     working_sound =
     {
       sound =
