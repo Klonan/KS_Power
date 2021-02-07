@@ -81,7 +81,7 @@
     energy_source =
     {
       type = "fluid",
-      emissions = 0.01,
+      emissions_per_minute = 20,
       burns_fluid = true,
       fluid_usage_per_tick = 0,
       scale_fluid_usage = true,

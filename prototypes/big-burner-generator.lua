@@ -79,6 +79,7 @@ data:extend
       type = "burner",
       fuel_inventory_size = 5,
       effectivity = 0.5,
+      emissions_per_minute = 1000,
       light_flicker = {intensity = 1, minimum_light_size = 3, color = {r=1.0, g=1.0, b=0.5}},
       smoke =
       {
