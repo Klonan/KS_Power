@@ -31,7 +31,7 @@ data:extend({
     name = "wind-turbine-2",
     icon = "__KS_Power__/graphics/wind_turbine_icon.png",
     icon_size = 32,
-    flags = {"placeable-neutral", "player-creation"},
+    flags = {"placeable-neutral", "player-creation", "not-rotatable"},
     minable = {hardness = 0.2, mining_time = 0.5, result = "wind-turbine-2"},
     max_health = 50,
     corpse = "medium-remnants",
@@ -41,13 +41,14 @@ data:extend({
     energy_source =
     {
       type = "electric",
-      buffer_capacity = "1kJ",
+      buffer_capacity = "15kJ",
       usage_priority = "primary-output",
       input_flow_limit = "0kW",
       output_flow_limit = "30kW",
       render_no_power_icon = false
     },
-    energy_production = "0kW",
+    continuous_animation = true,
+    energy_production = "15kW",
     energy_usage = "0kW",
     animation =
     {
@@ -57,7 +58,7 @@ data:extend({
 			frame_count = 20,
 			line_length = 5,
 			shift = {1.7,-1.4},
-      animation_speed = 0.005
+      animation_speed = 1
 		},
     vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65},
     working_sound =
@@ -65,14 +66,14 @@ data:extend({
       sound =
       {
         filename = "__base__/sound/train-wheels.ogg",
-        volume = 0.6
+        volume = 0.4
       },
       idle_sound =
       {
         filename = "__base__/sound/train-wheels.ogg",
-        volume = 0.0
+        volume = 0.4
       },
-      max_sounds_per_type = 5
+      max_sounds_per_type = 3
     },
   },
 
