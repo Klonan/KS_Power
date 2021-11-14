@@ -91,19 +91,36 @@ data:extend({
             width = 121,
             height = 80,
             shift = util.by_pixel(20, 4),
-            frame_count = 1
+            frame_count = 1,
+            hr_version = {
+              filename = "__KS_Power__/graphics/entity/burner-generator/hr-burner-generator-h.png",
+              priority = "extra-high",
+              width = 241,
+              height = 160,
+              scale = 0.5,
+              shift = util.by_pixel(20, 4),
+              frame_count = 1,
+            }
           },
-          --{
-          --  filename = "__KS_Power__/graphics/entity/burner-generator/boiler-fire-down.png",
-          --  priority = "extra-high",
-          --  line_length = 8,
-          --  width = 21,
-          --  height = 34,
-          --  frame_count = 48,
-          --  axially_symmetrical = false,
-          --  direction_count = 1,
-          --  shift = util.by_pixel(5,17)
-          --}
+          {
+            filename = "__KS_Power__/graphics/entity/burner-generator/burner-generator-h-shadow.png",
+            priority = "extra-high",
+            width = 121,
+            height = 80,
+            shift = util.by_pixel(20, 4),
+            frame_count = 1,
+            draw_as_shadow = true,
+            hr_version = {
+              filename = "__KS_Power__/graphics/entity/burner-generator/hr-burner-generator-h-shadow.png",
+              priority = "extra-high",
+              width = 241,
+              height = 160,
+              scale = 0.5,
+              shift = util.by_pixel(20, 4),
+              frame_count = 1,
+              draw_as_shadow = true,
+            }
+          },
         }
       },
       east =
@@ -117,7 +134,35 @@ data:extend({
             height = 112,
             shift = util.by_pixel(12, -0.5),
             frame_count = 1,
-          }
+            hr_version = {
+              filename = "__KS_Power__/graphics/entity/burner-generator/hr-burner-generator-v.png",
+              priority = "extra-high",
+              width = 186,
+              height = 224,
+              scale = 0.5,
+              shift = util.by_pixel(12, -0.5),
+              frame_count = 1,
+            }
+          },
+          {
+            filename = "__KS_Power__/graphics/entity/burner-generator/burner-generator-v-shadow.png",
+            priority = "extra-high",
+            width = 93,
+            height = 112,
+            shift = util.by_pixel(12, -0.5),
+            frame_count = 1,
+            draw_as_shadow = true,
+            hr_version = {
+              filename = "__KS_Power__/graphics/entity/burner-generator/hr-burner-generator-v-shadow.png",
+              priority = "extra-high",
+              width = 186,
+              height = 224,
+              scale = 0.5,
+              shift = util.by_pixel(12, -0.5),
+              frame_count = 1,
+              draw_as_shadow = true,
+            }
+          },
         }
       }
     },

@@ -7,7 +7,14 @@ local burner_picture =
       width = 320,
       height = 320,
       scale = 1,
-      shift = { -0.03125, -0.1875 }
+      shift = { -0.03125, -0.1875 },
+      hr_version = {
+        filename = "__KS_Power__/graphics/entity/big-burner-generator/hr-big-burner-generator.png",
+        width = 640,
+        height = 640,
+        scale = 0.5,
+        shift = { -0.03125, -0.1875 },
+      }
     },
     {
       filename = "__KS_Power__/graphics/entity/big-burner-generator/big-burner-generator-shadow.png",
@@ -15,7 +22,15 @@ local burner_picture =
       height = 323,
       scale = 1,
       shift = { 1.625, 0 },
-      draw_as_shadow = true
+      draw_as_shadow = true,
+      hr_version = {
+        filename = "__KS_Power__/graphics/entity/big-burner-generator/hr-big-burner-generator-shadow.png",
+        width = 525*2,
+        height = 323*2,
+        scale = 0.5,
+        shift = { 1.625, 0 },
+        draw_as_shadow = true,
+      }
     }
   }
 }
