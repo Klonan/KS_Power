@@ -3,14 +3,14 @@ local burner_picture =
   layers =
   {
     {
-      filename = "__KS_Power__/graphics/big-burner-generator/big-burner-generator.png",
+      filename = "__KS_Power__/graphics/entity/big-burner-generator/big-burner-generator.png",
       width = 320,
       height = 320,
       scale = 1,
       shift = { -0.03125, -0.1875 }
     },
     {
-      filename = "__KS_Power__/graphics/big-burner-generator/big-burner-generator-shadow.png",
+      filename = "__KS_Power__/graphics/entity/big-burner-generator/big-burner-generator-shadow.png",
       width = 525,
       height = 323,
       scale = 1,
@@ -20,16 +20,12 @@ local burner_picture =
   }
 }
 
-local icon = "__KS_Power__/graphics/big-burner-generator/big-burner-generator.png"
-local icon_size = 320
-
-data:extend
-{
+data:extend({
   {
     type = "item",
     name = "big-burner-generator",
-    icon = icon,
-    icon_size = icon_size,
+    icon = "__KS_Power__/graphics/icons/big-burner-generator-icon.png",
+    icon_size = 64,
     flags = {},
     subgroup = "energy",
     order = "b[steam-power]-d[big-burner-generator]",
@@ -53,8 +49,8 @@ data:extend
   {
     type = "burner-generator",
     name = "big-burner-generator",
-    icon = icon,
-    icon_size = icon_size,
+    icon = "__KS_Power__/graphics/icons/big-burner-generator-icon.png",
+    icon_size = 64,
     flags = {"placeable-neutral","player-creation"},
     minable = {mining_time = 1, result = "big-burner-generator"},
     max_health = 3000,
@@ -129,16 +125,12 @@ data:extend
     performance_to_sound_speedup = 0.5,
     max_power_output = "50MW",
   },
-}
 
-
-data:extend
-{
   {
     type = "technology",
     name = "big-burner-generator",
-    icon = icon,
-    icon_size = icon_size,
+    icon = "__KS_Power__/graphics/technology/big-burner-generator-technology.png",
+    icon_size = 256,
     effects =
     {
       {
@@ -160,4 +152,4 @@ data:extend
     },
     order = "f-b-d",
   }
-}
+})

@@ -3,8 +3,8 @@ data:extend(
     {
       type = "item",
       name = "petroleum-generator",
-      icon = "__KS_Power__/graphics/diesel-generator-icon.png",
-      icon_size = 32,
+      icon = "__KS_Power__/graphics/icons/petroleum-generator-icon.png",
+      icon_size = 64,
       flags = {},
       subgroup = "energy",
       order = "b[steam-power]-d[petroleum-generator]",
@@ -27,8 +27,8 @@ data:extend(
     {
       type = "generator",
       name = "petroleum-generator",
-      icon = "__KS_Power__/graphics/diesel-generator-icon.png",
-      icon_size = 32,
+      icon = "__KS_Power__/graphics/icons/petroleum-generator-icon.png",
+      icon_size = 64,
       flags = {"placeable-neutral", "player-creation"},
       minable = {mining_time = 2, result = "petroleum-generator"},
       max_power_output = (4 / 60) .. "MJ",
@@ -65,7 +65,7 @@ data:extend(
       },
       vehicle_impact_sound = {filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65},
       horizontal_animation = {
-        filename = "__KS_Power__/graphics/dg_h_sheet.png",
+        filename = "__KS_Power__/graphics/entity/petroleum-generator/hr-petroleum-generator-horizontal-anim.png",
         width = 448,
         height = 256,
         frame_count = 8,
@@ -77,7 +77,7 @@ data:extend(
         run_mode = "forward-then-backward"
       },
       vertical_animation = {
-        filename = "__KS_Power__/graphics/dg_v_sheet.png",
+        filename = "__KS_Power__/graphics/entity/petroleum-generator/hr-petroleum-generator-vertical-anim.png",
         width = 256,
         height = 448,
         frame_count = 8,
@@ -138,26 +138,26 @@ data:extend(
         {type = "fluid", name = "petroleum-gas", amount = 20},
         {type = "fluid", name = "light-oil", amount = 20}
       },
-      crafting_machine_tint = { 
-        primary = {r = 0.5, g = 0.4, b = 0}, 
-        secondary = {r = 0.5, g = 0.4, b = 0}, 
-        tertiary = {r = 0.5, g = 0.4, b = 0}, 
+      crafting_machine_tint = {
+        primary = {r = 0.5, g = 0.4, b = 0},
+        secondary = {r = 0.5, g = 0.4, b = 0},
+        tertiary = {r = 0.5, g = 0.4, b = 0},
         quaternary = {r = 0.5, g = 0.4, b = 0}
       },
       results = {
         {type = "fluid", name = "diesel-fuel", amount = 30, temperature = 25}
       },
       main_product = "",
-      icon = "__KS_Power__/graphics/diesel-fuel-recipe.png",
-      icon_size = 32,
+      icon = "__KS_Power__/graphics/icons/diesel-fuel-recipe-icon.png",
+      icon_size = 64,
       subgroup = "fluid-recipes",
       order = "b[fluid-chemistry]-i[diesel-fuel]"
     },
     {
       type = "technology",
       name = "petroleum-generator",
-      icon = "__KS_Power__/graphics/diesel-generator-t1.png",
-      icon_size = 128,
+      icon = "__KS_Power__/graphics/technology/petroleum-generator-technology.png",
+      icon_size = 256,
       effects = {
         {
           type = "unlock-recipe",
@@ -185,8 +185,8 @@ data:extend(
       heat_capacity = "1KJ",
       base_color = {r = 0.8, g = 0.7, b = 0},
       flow_color = {r = 0.5, g = 0.4, b = 0},
-      icon = "__KS_Power__/graphics/diesel-fuel.png",
-      icon_size = 32,
+      icon = "__KS_Power__/graphics/icons/diesel-fuel-icon.png",
+      icon_size = 64,
       order = "a[fluid]-i[diesel-fuel]",
       pressure_to_speed_ratio = 0.4,
       flow_to_energy_ratio = 0.59

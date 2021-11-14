@@ -2,8 +2,8 @@
   {
     type = "item",
     name = "oil-steam-boiler",
-    icon = "__KS_Power__/graphics/icons/oil-steam-boiler.png",
-    icon_size = 32,
+    icon = "__KS_Power__/graphics/icons/oil-steam-boiler-icon.png",
+    icon_size = 64,
     flags = {},
     subgroup = "energy",
     order = "f[oil-steam-boiler]",
@@ -27,8 +27,8 @@
   {
     type = "boiler",
     name = "oil-steam-boiler",
-    icon = "__KS_Power__/graphics/icons/oil-steam-boiler.png",
-    icon_size = 32,
+    icon = "__KS_Power__/graphics/icons/oil-steam-boiler-icon.png",
+    icon_size = 64,
     flags = {"placeable-neutral", "player-creation"},
     minable = {mining_time = 0.1, result = "oil-steam-boiler"},
     max_health = 200,
@@ -115,7 +115,7 @@
         height = 223,
         line_length = 8,
         shift = {0.5, 0},
-        filename = "__KS_Power__/graphics/ob_n_sheet.png",
+        filename = "__KS_Power__/graphics/entity/oil-steam-boiler/oil-steam-boiler_n_anim.png",
         frame_count = 8,
         animation_speed = 0.4,
         scale = 0.5,
@@ -128,7 +128,7 @@
         height = 175,
         line_length = 8,
         shift = {0.45, 0},
-        filename = "__KS_Power__/graphics/ob_w_sheet.png",
+        filename = "__KS_Power__/graphics/entity/oil-steam-boiler/oil-steam-boiler_e_anim.png",
         frame_count = 8,
         animation_speed = 0.4,
         scale = 0.5,
@@ -141,7 +141,7 @@
         height = 220,
         line_length = 8,
         shift = {0.5, 0},
-        filename = "__KS_Power__/graphics/ob_s_sheet.png",
+        filename = "__KS_Power__/graphics/entity/oil-steam-boiler/oil-steam-boiler_s_anim.png",
         frame_count = 8,
         animation_speed = 0.4,
         scale = 0.5,
@@ -154,7 +154,7 @@
         height = 173,
         line_length = 8,
         shift = {0.45, 0},
-        filename = "__KS_Power__/graphics/ob_e_sheet.png",
+        filename = "__KS_Power__/graphics/entity/oil-steam-boiler/oil-steam-boiler_w_anim.png",
         frame_count = 8,
         animation_speed = 0.4,
         scale = 0.5,
@@ -164,29 +164,28 @@
     fire = {},
     fire_glow = {},
     burning_cooldown = 20
+  },
+  {
+    type = "technology",
+    name = "OilBurning",
+    icon = "__KS_Power__/graphics/technology/oil-boiler-technology.png",
+    icon_size = 256,
+    effects = {
+      {
+        type = "unlock-recipe",
+        recipe = "oil-steam-boiler"
+      }
+    },
+    prerequisites = {"oil-processing","concrete"},
+    unit = {
+      count = 200,
+      ingredients =
+      {
+        {"automation-science-pack", 1},
+        {"logistic-science-pack", 1}
+      },
+      time = 30
+    },
+    order = "f-b-c",
   }
 })
-
-data:extend({{
-  type = "technology",
-  name = "OilBurning",
-  icon = "__KS_Power__/graphics/oil-boiler-tech2.png",
-  icon_size = 128,
-  effects ={
-  {
-    type = "unlock-recipe",
-    recipe = "oil-steam-boiler"
-  }},
-  prerequisites = {"oil-processing","concrete"},
-  unit =
-  {
-    count = 200,
-    ingredients =
-    {
-      {"automation-science-pack", 1},
-      {"logistic-science-pack", 1}
-    },
-    time = 30
-  },
-  order = "f-b-c",
-}})

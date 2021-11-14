@@ -2,8 +2,8 @@ data:extend({
 	{
 		type = "item",
 		name = "wind-turbine-2",
-		icon = "__KS_Power__/graphics/wind_turbine_icon.png",
-    icon_size = 32,
+		icon = "__KS_Power__/graphics/icons/wind_turbine_icon.png",
+    icon_size = 64,
 		flags = {},
 		subgroup = "energy",
 		order = "b[steam-power]-c[wind-turbine]",
@@ -29,8 +29,8 @@ data:extend({
   {
     type = "electric-energy-interface",
     name = "wind-turbine-2",
-    icon = "__KS_Power__/graphics/wind_turbine_icon.png",
-    icon_size = 32,
+    icon = "__KS_Power__/graphics/icons/wind_turbine_icon.png",
+    icon_size = 64,
     flags = {"placeable-neutral", "player-creation", "not-rotatable"},
     minable = {hardness = 0.2, mining_time = 0.5, result = "wind-turbine-2"},
     max_health = 50,
@@ -52,7 +52,7 @@ data:extend({
     energy_usage = "0kW",
     animation =
     {
-			filename = "__KS_Power__/graphics/wind_turbine_sheet_4.png",
+			filename = "__KS_Power__/graphics/entity/wind-turbine-2/wind-turbine-2-anim.png",
 			width = 175,
 			height = 175,
 			frame_count = 20,

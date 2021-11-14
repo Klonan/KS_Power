@@ -5,7 +5,7 @@ data:extend({
     type = "item",
     name = "burner-generator",
     icon = "__KS_Power__/graphics/icons/burner-generator-icon.png",
-    icon_size = 32,
+    icon_size = 64,
     flags = {},
     subgroup = "energy",
     order = "b[steam-power]-c[burner-generator]",
@@ -30,7 +30,7 @@ data:extend({
     type = "burner-generator",
     name = "burner-generator",
     icon = "__KS_Power__/graphics/icons/burner-generator-icon.png",
-    icon_size = 32,
+    icon_size = 64,
     flags = {"placeable-neutral","player-creation"},
     minable = {mining_time = 1, result = "burner-generator"},
     max_health = 300,
@@ -81,12 +81,12 @@ data:extend({
     },
     animation =
     {
-      north = 
+      north =
       {
         layers =
         {
           {
-            filename = "__KS_Power__/graphics/entity/burner-generator-h.png",
+            filename = "__KS_Power__/graphics/entity/burner-generator/burner-generator-h.png",
             priority = "extra-high",
             width = 121,
             height = 80,
@@ -94,7 +94,7 @@ data:extend({
             frame_count = 1
           },
           --{
-          --  filename = "__KS_Power__/graphics/entity/boiler-fire-down.png",
+          --  filename = "__KS_Power__/graphics/entity/burner-generator/boiler-fire-down.png",
           --  priority = "extra-high",
           --  line_length = 8,
           --  width = 21,
@@ -106,12 +106,12 @@ data:extend({
           --}
         }
       },
-      east = 
+      east =
       {
-        layers = 
+        layers =
         {
           {
-            filename = "__KS_Power__/graphics/entity/burner-generator-v.png",
+            filename = "__KS_Power__/graphics/entity/burner-generator/burner-generator-v.png",
             priority = "extra-high",
             width = 93,
             height = 112,
