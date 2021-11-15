@@ -56,7 +56,7 @@ data:extend(
         pipe_connections = {
           {position = {-1.5, 0.5}, type = "input-output"},
           {position = {1.5, 0.5}, type = "input-output"}
-        }
+        },
       },
       energy_source = {
         type = "electric",
@@ -72,21 +72,17 @@ data:extend(
             height = 128,
             frame_count = 1,
             repeat_count = 16,
-            shift = {0.5, -0.4},
-            flags = {"no-crop"},
+            shift = util.by_pixel(0, -13),
             animation_speed = 0.5,
-            --run_mode = "forward-then-backward",
             hr_version = {
               filename = "__KS_Power__/graphics/entity/petroleum-generator/hr-petroleum-generator-horizontal-base.png",
               width = 548,
               height = 256,
               frame_count = 1,
               repeat_count = 16,
-              shift = {0.5, -0.4},
-              flags = {"no-crop"},
+              shift = util.by_pixel(0, -13),
               animation_speed = 0.5,
               scale = 0.5,
-              --run_mode = "forward-then-backward",
             }
           },
           {
@@ -95,10 +91,8 @@ data:extend(
             height = 128,
             frame_count = 1,
             repeat_count = 16,
-            shift = {0.5, -0.4},
-            flags = {"no-crop"},
+            shift = util.by_pixel(16, -13),
             animation_speed = 0.5,
-            --run_mode = "forward-then-backward",
             draw_as_shadow = true,
             hr_version = {
               filename = "__KS_Power__/graphics/entity/petroleum-generator/hr-petroleum-generator-horizontal-base-shadow.png",
@@ -107,10 +101,8 @@ data:extend(
               frame_count = 1,
               repeat_count = 16,
               shift = {0.5, -0.4},
-              flags = {"no-crop"},
               animation_speed = 0.5,
               scale = 0.5,
-              --run_mode = "forward-then-backward",
               draw_as_shadow = true,
             }
           },
@@ -120,8 +112,7 @@ data:extend(
             height = 256,
             frame_count = 8,
             line_length = 4,
-            shift = {0.5, -0.4},
-            flags = {"no-crop"},
+            shift = util.by_pixel(0, -13),
             animation_speed = 0.5,
             run_mode = "forward-then-backward",
             draw_as_glow = true,
@@ -131,8 +122,7 @@ data:extend(
               height = 256,
               frame_count = 8,
               line_length = 4,
-              shift = {0.5, -0.4},
-              flags = {"no-crop"},
+              shift = util.by_pixel(0, -13),
               animation_speed = 0.5,
               scale = 0.5,
               run_mode = "forward-then-backward",
@@ -149,8 +139,6 @@ data:extend(
             height = 224,
             frame_count = 1,
             repeat_count = 8,
-            shift = {0.8, 0.1},
-            flags = {"no-crop"},
             animation_speed = 0.5,
             hr_version = {
               filename = "__KS_Power__/graphics/entity/petroleum-generator/hr-petroleum-generator-vertical-base.png",
@@ -158,8 +146,6 @@ data:extend(
               height = 448,
               frame_count = 1,
               repeat_count = 8,
-              shift = {0.8, 0.1},
-              flags = {"no-crop"},
               animation_speed = 0.5,
               scale = 0.5,
             }
@@ -170,8 +156,7 @@ data:extend(
             height = 224,
             frame_count = 1,
             repeat_count = 8,
-            shift = {0.8, 0.1},
-            flags = {"no-crop"},
+            shift = util.by_pixel(25, 0),
             animation_speed = 0.5,
             draw_as_shadow = true,
             hr_version = {
@@ -180,8 +165,7 @@ data:extend(
               height = 448,
               frame_count = 1,
               repeat_count = 8,
-              shift = {0.8, 0.1},
-              flags = {"no-crop"},
+              shift = util.by_pixel(25, 0),
               animation_speed = 0.5,
               scale = 0.5,
               draw_as_shadow = true,
@@ -193,8 +177,6 @@ data:extend(
             height = 224,
             frame_count = 8,
             line_length = 4,
-            shift = {0.8, 0.1},
-            flags = {"no-crop"},
             animation_speed = 0.5,
             draw_as_glow = true,
             hr_version = {
@@ -203,8 +185,6 @@ data:extend(
               height = 448,
               frame_count = 8,
               line_length = 4,
-              shift = {0.8, 0.1},
-              flags = {"no-crop"},
               animation_speed = 0.5,
               scale = 0.5,
               draw_as_glow = true,
@@ -215,21 +195,35 @@ data:extend(
       smoke = {
         {
           name = "tank-smoke",
-          north_position = {0.42, -0.85},
-          east_position = {-1.15, -2.0},
+          --north_position = {0.42, -0.85},
+          --east_position = {-1.15, -2.0},
+          north_position = util.by_pixel(-14.5, -27),
+          south_position = util.by_pixel(-14.5, -27),
+          east_position = util.by_pixel(-46, -66),
+          west_position = util.by_pixel(-46, -66),
           frequency = 10 / 32,
           starting_vertical_speed = 0.06,
+          starting_vertical_speed_deviation = 0.1,
           slow_down_factor = 1,
-          starting_frame_deviation = 60
+          starting_frame_deviation = 60,
+          starting_frame = 5,
         },
         {
           name = "tank-smoke",
-          north_position = {-0.42, -0.85},
-          east_position = {-1.15, -1.8},
+          --north_position = {-0.42, -0.85},
+          --east_position = {-1.15, -1.8},
+          north_position = util.by_pixel(14.5, -27),
+          south_position = util.by_pixel(14.5, -27),
+          east_position = util.by_pixel(-46, -82),
+          west_position = util.by_pixel(-46, -82),
           frequency = 10 / 32,
           starting_vertical_speed = 0.06,
+          starting_vertical_speed_deviation = 0.1,
           slow_down_factor = 1,
-          starting_frame_deviation = 60
+          starting_frame_deviation = 10,
+          starting_frame = 5,
+          starting_frame_speed = 1,
+          starting_frame_speed_deviation = 0.5
         }
       },
       working_sound = {

@@ -95,7 +95,6 @@ data:extend({
         {
           name = "smoke",
           frequency = 25,
-          --position = {-2.5, -1.4},
           north_position = {-2.5, -1.4},
           south_position = {-2.5, -1.4},
           east_position = {-2.5, -1.4},
@@ -109,7 +108,6 @@ data:extend({
         {
           name = "big-burner-generator-smoke",
           frequency = 25,
-          --position = {2.5, 1.4},
           north_position = {-2.5, -1.4},
           south_position = {-2.5, -1.4},
           east_position = {-2.5, -1.4},
@@ -186,7 +184,6 @@ data:extend({
       frame_count = 32,
       line_length = 8,
       scale = 0.5,
-      --tint = {1,1,1,0.5},
       animation_speed = 32 / 100,
       blend_mode = "additive",
       draw_as_glow = true,

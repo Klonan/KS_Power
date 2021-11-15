@@ -58,13 +58,11 @@ data:extend({
       fuel_inventory_size = 2,
       effectivity = 0.25,
       emissions_per_minute = 30,
-      --light_flicker = {intensity = 1, size = 0.5, color = {r=1.0, g=0.5, b=0}},
       smoke =
       {
         {
           name = "smoke",
           frequency = 10,
-          --position = {0.05, 0.9},
           north_position = north_smoke,
           south_position = north_smoke,
           east_position = east_smoke,
@@ -74,7 +72,6 @@ data:extend({
         {
           name = "burner-generator-smoke",
           frequency = 30,
-          --position = {0.05, 0.9},
           north_position = north_smoke,
           south_position = north_smoke,
           east_position = east_smoke,
@@ -209,7 +206,6 @@ data:extend({
       frame_count = 32,
       line_length = 8,
       scale = 0.20,
-      --tint = {1,1,1,0.5},
       animation_speed = 32 / 200,
       blend_mode = "additive",
       draw_as_glow = true,
