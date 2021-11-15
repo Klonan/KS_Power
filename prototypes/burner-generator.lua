@@ -1,6 +1,6 @@
 require "util"
 
-local north_smoke = {0.0, 0.8}
+local north_smoke = {-0.05, 0.8}
 local east_smoke = {-0.1, 0.7}
 data:extend({
   {
@@ -96,7 +96,7 @@ data:extend({
             priority = "extra-high",
             width = 121,
             height = 80,
-            shift = util.by_pixel(20, 4),
+            shift = util.by_pixel(0, 4),
             frame_count = 1,
             hr_version = {
               filename = "__KS_Power__/graphics/entity/burner-generator/hr-burner-generator-h.png",
@@ -104,7 +104,7 @@ data:extend({
               width = 241,
               height = 160,
               scale = 0.5,
-              shift = util.by_pixel(20, 4),
+              shift = util.by_pixel(0, 4),
               frame_count = 1,
             }
           },
@@ -138,7 +138,7 @@ data:extend({
             priority = "extra-high",
             width = 93,
             height = 112,
-            shift = util.by_pixel(12, -0.5),
+            shift = util.by_pixel(0, -0.5),
             frame_count = 1,
             hr_version = {
               filename = "__KS_Power__/graphics/entity/burner-generator/hr-burner-generator-v.png",
@@ -146,7 +146,7 @@ data:extend({
               width = 186,
               height = 224,
               scale = 0.5,
-              shift = util.by_pixel(12, -0.5),
+              shift = util.by_pixel(0, -0.5),
               frame_count = 1,
             }
           },

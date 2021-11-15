@@ -4,9 +4,11 @@ local function makelayer_boiler(direction, layer)
   local line_length = 1
   local repeat_count = 8
   local draw_as_shadow = false
+  local hshift = 0
   if layer == "shadow" then
     type = "base-shadow"
     draw_as_shadow = true
+    hshift = 0.5
   elseif layer == "anim" then
     type = "anim"
     frame_count = 8
@@ -21,7 +23,7 @@ local function makelayer_boiler(direction, layer)
     line_length = line_length,
     repeat_count = repeat_count,
     animation_speed = 0.4,
-    shift = {0.5, 0},
+    shift = {hshift, 0},
     draw_as_shadow = draw_as_shadow,
     hr_version = {
       filename = "__KS_Power__/graphics/entity/oil-steam-boiler/hr-oil-steam-boiler-" .. direction .. "-" .. type .. ".png",
@@ -31,7 +33,7 @@ local function makelayer_boiler(direction, layer)
       line_length = line_length,
       repeat_count = repeat_count,
       animation_speed = 0.4,
-      shift = {0.5, 0},
+      shift = {hshift, 0},
       scale = 0.5,
       draw_as_shadow = draw_as_shadow,
     }
