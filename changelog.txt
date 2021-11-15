@@ -8,7 +8,7 @@ Date: 2021-11-15
     - Big Burner Generator: HD version, ground integration, fixed smoke/fire position, new fire style, fixed entity and shadow position.
     - Wind Turbine: HD version, ground integration, slowed down animation, separate shadow.
     - Oil Boiler: Separated base, shadow and animation, fixed visual pipe connections, improved post-effects, ground integration, aligned better.
-    - Diesel Generator: Separated base, shadow and animation (which now glows in the dark), fixed visual pipe connection, improved post-effects, centered entity.
+    - Diesel Generator: Separated base, shadow and animation (which now glows in the dark), fixed visual pipe connection, improved post-effects, centered entity, aligned/improved smoke.
     - New HD icons (more in the style of factorio).
     - Upscaled technologies to HD and fixed their shadows.
   Optimization:
