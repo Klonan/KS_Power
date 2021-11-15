@@ -1,6 +1,8 @@
 require "util"
-data:extend({
 
+local north_smoke = {0.0, 0.8}
+local east_smoke = {-0.1, 0.7}
+data:extend({
   {
     type = "item",
     name = "burner-generator",
@@ -56,25 +58,29 @@ data:extend({
       fuel_inventory_size = 2,
       effectivity = 0.25,
       emissions_per_minute = 30,
-      light_flicker = {intensity = 1, size = 0.5, color = {r=1.0, g=0.5, b=0}},
+      --light_flicker = {intensity = 1, size = 0.5, color = {r=1.0, g=0.5, b=0}},
       smoke =
       {
         {
           name = "smoke",
           frequency = 10,
           --position = {0.05, 0.9},
-          north_position = {0.05, 0.9},
-          east_position = {0.05, 0.9},
-          starting_vertical_speed = 0.05,
+          north_position = north_smoke,
+          south_position = north_smoke,
+          east_position = east_smoke,
+          west_position = east_smoke,
+          starting_vertical_speed = 0.03,
         },
         {
           name = "burner-generator-smoke",
-          frequency = 60,
+          frequency = 30,
           --position = {0.05, 0.9},
-          north_position = {0.05, 0.9},
-          east_position = {0.05, 0.8},
-          starting_vertical_speed = 0.05,
-          starting_vertical_speed_deviation = 0.02,
+          north_position = north_smoke,
+          south_position = north_smoke,
+          east_position = east_smoke,
+          west_position = east_smoke,
+          starting_vertical_speed = 0.01,
+          starting_vertical_speed_deviation = 0.01,
           deviation = {0.1, 0.1}
         },
       }
@@ -180,25 +186,20 @@ data:extend({
     max_power_output = "0.5MW",
   },
 
-}
-)
-
-data:extend(
-{
   {
     type = "trivial-smoke",
     name = "burner-generator-smoke",
     flags = {"not-on-map"},
-    duration = 100,
-    fade_in_duration = 0,
-    fade_away_duration = 20,
+    duration = 50,
+    fade_in_duration = 5,
+    fade_away_duration = 30,
     spread_duration = 200,
     slow_down_factor = 0.5,
     start_scale = 1,
     end_scale = 0,
-    color = {r = 1, g = 1, b = 1, a = 1},
+    color = {r = 1, g = 0.5, b = 0.5, a = 0.1},
     cyclic = false,
-    affected_by_wind = true,
+    affected_by_wind = false,
     animation =
     {
       filename = "__base__/graphics/entity/flamethrower-fire-stream/flamethrower-explosion.png",
@@ -207,9 +208,11 @@ data:extend(
       height = 64,
       frame_count = 32,
       line_length = 8,
-      scale = 0.25,
-      animation_speed = 32 / 100,
-      blend_mode = "additive"
+      scale = 0.20,
+      --tint = {1,1,1,0.5},
+      animation_speed = 32 / 200,
+      blend_mode = "additive",
+      draw_as_glow = true,
     },
   },
 })
