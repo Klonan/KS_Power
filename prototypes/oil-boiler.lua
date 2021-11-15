@@ -1,3 +1,44 @@
+local function makelayer_boiler(direction, layer)
+  local type = "base"
+  local frame_count = 1
+  local line_length = 1
+  local repeat_count = 8
+  local draw_as_shadow = false
+  if layer == "shadow" then
+    type = "base-shadow"
+    draw_as_shadow = true
+  elseif layer == "anim" then
+    type = "anim"
+    frame_count = 8
+    line_length = 8
+    repeat_count = 1
+  end
+  return {
+    filename = "__KS_Power__/graphics/entity/oil-steam-boiler/oil-steam-boiler-" .. direction .. "-" .. type .. ".png",
+    width = 128,
+    height = 128,
+    frame_count = frame_count,
+    line_length = line_length,
+    repeat_count = repeat_count,
+    animation_speed = 0.4,
+    shift = {0.5, 0},
+    draw_as_shadow = draw_as_shadow,
+    hr_version = {
+      filename = "__KS_Power__/graphics/entity/oil-steam-boiler/hr-oil-steam-boiler-" .. direction .. "-" .. type .. ".png",
+      width = 256,
+      height = 256,
+      frame_count = frame_count,
+      line_length = line_length,
+      repeat_count = repeat_count,
+      animation_speed = 0.4,
+      shift = {0.5, 0},
+      scale = 0.5,
+      draw_as_shadow = draw_as_shadow,
+    }
+  }
+end
+
+
  data:extend({
   {
     type = "item",
@@ -59,23 +100,25 @@
       base_area = 1,
       height = 2,
       base_level = -1,
-      --pipe_covers = pipecoverspictures(),
+      pipe_covers = pipecoverspictures(),
+      --pipe_picture = pipepictures(),
       pipe_connections = {{ type="input", position = {1, -2} }},
       production_type = "input",
-      filter = "water"
+      filter = "water",
     },
     output_fluid_box =
     {
       base_area = 1,
       height = 2,
       base_level = 1,
-      --pipe_covers = pipecoverspictures(),
+      pipe_covers = pipecoverspictures(),
+      --pipe_picture = pipepictures(),
       pipe_connections =
       {
         {type = "output", position = {0, 2}}
       },
       production_type = "output",
-      filter = "steam"
+      filter = "steam",
     },
     energy_consumption = "2.7MW",
     energy_source =
@@ -90,7 +133,8 @@
         base_area = 1,
         height = 2,
         base_level = -1,
-        --pipe_covers = pipecoverspictures(),
+        pipe_covers = pipecoverspictures(),
+        --pipe_picture = pipepictures(),
         pipe_connections = {{ type="input", position = {-1, -2} }},
         production_type = "input",
       },
@@ -108,58 +152,34 @@
 
     structure =
     {
-      north =
-      {
-        priority = "extra-high",
-        width = 256,
-        height = 223,
-        line_length = 8,
-        shift = {0.5, 0},
-        filename = "__KS_Power__/graphics/entity/oil-steam-boiler/oil-steam-boiler_n_anim.png",
-        frame_count = 8,
-        animation_speed = 0.4,
-        scale = 0.5,
-        run_mode = "forward-then-backward",
+      north = {
+        layers = {
+          makelayer_boiler("n"),
+          makelayer_boiler("n", "shadow"),
+          makelayer_boiler("n", "anim"),
+        }
       },
-      east =
-      {
-        priority = "extra-high",
-        width = 256,
-        height = 175,
-        line_length = 8,
-        shift = {0.45, 0},
-        filename = "__KS_Power__/graphics/entity/oil-steam-boiler/oil-steam-boiler_e_anim.png",
-        frame_count = 8,
-        animation_speed = 0.4,
-        scale = 0.5,
-        run_mode = "forward-then-backward",
+      east = {
+        layers = {
+          makelayer_boiler("e"),
+          makelayer_boiler("e", "shadow"),
+          makelayer_boiler("e", "anim"),
+        }
       },
-      south =
-      {
-        priority = "extra-high",
-        width = 256,
-        height = 220,
-        line_length = 8,
-        shift = {0.5, 0},
-        filename = "__KS_Power__/graphics/entity/oil-steam-boiler/oil-steam-boiler_s_anim.png",
-        frame_count = 8,
-        animation_speed = 0.4,
-        scale = 0.5,
-        run_mode = "forward-then-backward",
+      south = {
+        layers = {
+          makelayer_boiler("s"),
+          makelayer_boiler("s", "shadow"),
+          makelayer_boiler("s", "anim"),
+        }
       },
-      west =
-      {
-        priority = "extra-high",
-        width = 256,
-        height = 173,
-        line_length = 8,
-        shift = {0.45, 0},
-        filename = "__KS_Power__/graphics/entity/oil-steam-boiler/oil-steam-boiler_w_anim.png",
-        frame_count = 8,
-        animation_speed = 0.4,
-        scale = 0.5,
-        run_mode = "forward-then-backward",
-      }
+      west = {
+        layers = {
+          makelayer_boiler("w"),
+          makelayer_boiler("w", "shadow"),
+          makelayer_boiler("w", "anim"),
+        }
+      },
     },
     fire = {},
     fire_glow = {},
