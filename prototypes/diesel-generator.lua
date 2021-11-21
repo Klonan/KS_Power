@@ -53,18 +53,21 @@ data:extend(
         height = 2,
         pipe_covers = pipecoverspictures(),
         production_type = "input-output",
-        pipe_connections = {
+        pipe_connections =
+        {
           {position = {-1.5, 0.5}, type = "input-output"},
           {position = {1.5, 0.5}, type = "input-output"}
         },
       },
-      energy_source = {
+      energy_source =
+      {
         type = "electric",
         usage_priority = "secondary-output",
         emissions_per_minute = 50,
       },
       vehicle_impact_sound = {filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65},
-      horizontal_animation = {
+      horizontal_animation =
+      {
         layers = {
           {
             filename = "__KS_Power__/graphics/entity/petroleum-generator/petroleum-generator-horizontal-base.png",
@@ -131,7 +134,8 @@ data:extend(
           },
         }
       },
-      vertical_animation = {
+      vertical_animation =
+      {
         layers = {
           {
             filename = "__KS_Power__/graphics/entity/petroleum-generator/petroleum-generator-vertical-base.png",

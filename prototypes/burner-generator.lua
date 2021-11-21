@@ -58,6 +58,7 @@ data:extend({
       fuel_inventory_size = 2,
       effectivity = 0.25,
       emissions_per_minute = 30,
+      light_flicker = {color = {0,0,0}},
       smoke =
       {
         {

@@ -130,6 +130,7 @@ end
       burns_fluid = true,
       fluid_usage_per_tick = 0,
       scale_fluid_usage = true,
+      light_flicker = {color = {0,0,0}},
       fluid_box =
       {
         base_area = 1,
@@ -140,6 +141,35 @@ end
         pipe_connections = {{ type="input", position = {-1, -2} }},
         production_type = "input",
       },
+      smoke =
+      {
+        {
+          name = "light-smoke",
+          north_position = util.by_pixel(21, -54),
+          east_position = util.by_pixel(10, 0),
+          south_position = util.by_pixel(-10, -21),
+          west_position = util.by_pixel(-10, -20),
+          frequency = 40,
+          starting_vertical_speed = 0.06,
+          starting_vertical_speed_deviation = 0.1,
+          slow_down_factor = 1,
+          starting_frame_deviation = 60,
+          starting_frame = 5,
+        },
+        {
+          name = "smoke",
+          north_position = util.by_pixel(21, -54),
+          east_position = util.by_pixel(10, 0),
+          south_position = util.by_pixel(-10, -21),
+          west_position = util.by_pixel(-10, -20),
+          frequency = 20,
+          starting_vertical_speed = 0.06,
+          starting_vertical_speed_deviation = 0.1,
+          slow_down_factor = 1,
+          starting_frame_deviation = 60,
+          starting_frame = 5,
+        },
+      }
     },
     working_sound =
     {
