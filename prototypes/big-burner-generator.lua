@@ -3,33 +3,42 @@ local burner_picture =
   layers =
   {
     {
-      filename = "__KS_Power__/graphics/big-burner-generator/big-burner-generator.png",
+      filename = "__KS_Power__/graphics/entity/big-burner-generator/big-burner-generator.png",
       width = 320,
       height = 320,
-      scale = 1,
-      shift = { -0.03125, -0.1875 }
+      shift = { -0.03125 *2, -0.1875 *2 },
+      hr_version = {
+        filename = "__KS_Power__/graphics/entity/big-burner-generator/hr-big-burner-generator.png",
+        width = 640,
+        height = 640,
+        scale = 0.5,
+        shift = { -0.03125 *2, -0.1875 *2 },
+      }
     },
     {
-      filename = "__KS_Power__/graphics/big-burner-generator/big-burner-generator-shadow.png",
+      filename = "__KS_Power__/graphics/entity/big-burner-generator/big-burner-generator-shadow.png",
       width = 525,
       height = 323,
-      scale = 1,
-      shift = { 1.625, 0 },
-      draw_as_shadow = true
+      shift = { 1.625 * 2, 0 },
+      draw_as_shadow = true,
+      hr_version = {
+        filename = "__KS_Power__/graphics/entity/big-burner-generator/hr-big-burner-generator-shadow.png",
+        width = 525*2,
+        height = 323*2,
+        scale = 0.5,
+        shift = { 1.625 * 2, 0 },
+        draw_as_shadow = true,
+      }
     }
   }
 }
 
-local icon = "__KS_Power__/graphics/big-burner-generator/big-burner-generator.png"
-local icon_size = 320
-
-data:extend
-{
+data:extend({
   {
     type = "item",
     name = "big-burner-generator",
-    icon = icon,
-    icon_size = icon_size,
+    icon = "__KS_Power__/graphics/icons/big-burner-generator-icon.png",
+    icon_size = 64,
     flags = {},
     subgroup = "energy",
     order = "b[steam-power]-d[big-burner-generator]",
@@ -53,8 +62,8 @@ data:extend
   {
     type = "burner-generator",
     name = "big-burner-generator",
-    icon = icon,
-    icon_size = icon_size,
+    icon = "__KS_Power__/graphics/icons/big-burner-generator-icon.png",
+    icon_size = 64,
     flags = {"placeable-neutral","player-creation"},
     minable = {mining_time = 1, result = "big-burner-generator"},
     max_health = 3000,
@@ -80,39 +89,35 @@ data:extend
       fuel_inventory_size = 5,
       effectivity = 0.5,
       emissions_per_minute = 1000,
-      light_flicker = {intensity = 1, minimum_light_size = 3, color = {r=1.0, g=1.0, b=0.5}},
+      light_flicker = {intensity = 0.2, minimum_light_size = 1, color = {r=1.0, g=0.7, b=0.7, a=0.2}},
       smoke =
       {
         {
           name = "smoke",
           frequency = 25,
-          position = {-2.55, -1.4},
-          deviation = {0.1,0.1},
-          starting_vertical_speed = 0.1,
-          starting_vertical_speed_deviation = 0.025,
+          north_position = {-2.5, -1.4},
+          south_position = {-2.5, -1.4},
+          east_position = {-2.5, -1.4},
+          west_position = {-2.5, -1.4},
+          deviation = {0.2, 0.2},
+          starting_vertical_speed = 0.02,
+          starting_vertical_speed_deviation = 0.03,
           starting_frame_deviation = 3,
           slow_down_factor = 0.1
         },
         {
-          name = "burner-generator-smoke",
-          frequency = 180,
-          position = {-2.55, -1.4},
-          deviation = {0.1,0.1},
-          starting_vertical_speed = 0.1,
-          starting_vertical_speed_deviation = 0.025,
+          name = "big-burner-generator-smoke",
+          frequency = 25,
+          north_position = {-2.5, -1.4},
+          south_position = {-2.5, -1.4},
+          east_position = {-2.5, -1.4},
+          west_position = {-2.5, -1.4},
+          deviation = {0.1, 0.1},
+          starting_vertical_speed = 0.01,
+          starting_vertical_speed_deviation = 0.01,
           starting_frame_deviation = 3,
           slow_down_factor = 0.1
         },
-        {
-          name = "burner-generator-smoke",
-          frequency = 180,
-          position = {-2.5, -1.4},
-          deviation = {0.2,0.2},
-          starting_vertical_speed = 0.1,
-          starting_vertical_speed_deviation = 0.025,
-          starting_frame_deviation = 3,
-          slow_down_factor = 0.1
-        }
       }
     },
     animation = burner_picture,
@@ -129,16 +134,12 @@ data:extend
     performance_to_sound_speedup = 0.5,
     max_power_output = "50MW",
   },
-}
 
-
-data:extend
-{
   {
     type = "technology",
     name = "big-burner-generator",
-    icon = icon,
-    icon_size = icon_size,
+    icon = "__KS_Power__/graphics/technology/big-burner-generator-technology.png",
+    icon_size = 256,
     effects =
     {
       {
@@ -159,5 +160,33 @@ data:extend
       time = 30
     },
     order = "f-b-d",
-  }
-}
+  },
+  {
+    type = "trivial-smoke",
+    name = "big-burner-generator-smoke",
+    flags = {"not-on-map"},
+    duration = 170,
+    fade_in_duration = 20,
+    fade_away_duration = 100,
+    spread_duration = 200,
+    slow_down_factor = 0.5,
+    start_scale = 1,
+    end_scale = 0,
+    color = {r = 1, g = 0.4, b = 0.4, a = 0.1},
+    cyclic = false,
+    affected_by_wind = false,
+    animation =
+    {
+      filename = "__base__/graphics/entity/flamethrower-fire-stream/flamethrower-explosion.png",
+      priority = "extra-high",
+      width = 64,
+      height = 64,
+      frame_count = 32,
+      line_length = 8,
+      scale = 0.5,
+      animation_speed = 32 / 100,
+      blend_mode = "additive",
+      draw_as_glow = true,
+    },
+  },
+})
