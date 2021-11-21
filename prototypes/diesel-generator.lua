@@ -111,8 +111,8 @@ data:extend(
           },
           {
             filename = "__KS_Power__/graphics/entity/petroleum-generator/petroleum-generator-horizontal-anim.png",
-            width = 448,
-            height = 256,
+            width = 224,
+            height = 128,
             frame_count = 8,
             line_length = 4,
             shift = util.by_pixel(0, -13),
