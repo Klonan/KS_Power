@@ -15,14 +15,14 @@ data:extend(
       type = "recipe",
       name = "petroleum-generator",
       energy_required = 15,
-      enabled = "false",
+      enabled = false,
       ingredients = {
-        {"steel-plate", 12},
-        {"engine-unit", 8},
-        {"electronic-circuit", 16},
-        {"pipe", 10}
+        {type = "item", name = "steel-plate", amount = 12},
+        {type = "item", name = "engine-unit", amount = 8},
+        {type = "item", name = "electronic-circuit", amount = 16},
+        {type = "item", name = "pipe", amount = 10}
       },
-      result = "petroleum-generator"
+      results = {{type = "item", name = "petroleum-generator", amount = 1}}
     },
     {
       type = "generator",
@@ -48,89 +48,57 @@ data:extend(
       collision_box = {{-0.7, -2.7}, {0.7, 2.7}},
       selection_box = {{-1, -3}, {1, 3}},
       fluid_box = {
-        base_area = 1,
-        base_level = -1,
-        height = 2,
+        volume = 100,
         pipe_covers = pipecoverspictures(),
         production_type = "input-output",
         pipe_connections =
         {
-          {position = {-1.5, 0.5}, type = "input-output"},
-          {position = {1.5, 0.5}, type = "input-output"}
+          {position = {-0.5, 0.5}, flow_direction = "input-output", direction = defines.direction.west},
+          {position = {0.5, 0.5},  flow_direction = "input-output", direction = defines.direction.east}
         },
       },
       energy_source =
       {
         type = "electric",
         usage_priority = "secondary-output",
-        emissions_per_minute = 50,
+        emissions_per_minute = {pollution = 50},
       },
       vehicle_impact_sound = {filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65},
       horizontal_animation =
       {
         layers = {
           {
-            filename = "__KS_Power__/graphics/entity/petroleum-generator/petroleum-generator-horizontal-base.png",
-            width = 274,
-            height = 128,
+            filename = "__KS_Power__/graphics/entity/petroleum-generator/hr-petroleum-generator-horizontal-base.png",
+            width = 548,
+            height = 256,
             frame_count = 1,
-            repeat_count = 16,
+            repeat_count = 14,
             shift = util.by_pixel(0, -13),
             animation_speed = 0.5,
-            hr_version = {
-              filename = "__KS_Power__/graphics/entity/petroleum-generator/hr-petroleum-generator-horizontal-base.png",
-              width = 548,
-              height = 256,
-              frame_count = 1,
-              repeat_count = 16,
-              shift = util.by_pixel(0, -13),
-              animation_speed = 0.5,
-              scale = 0.5,
-            }
+            scale = 0.5,
           },
           {
-            filename = "__KS_Power__/graphics/entity/petroleum-generator/petroleum-generator-horizontal-base-shadow.png",
-            width = 274,
-            height = 128,
+            filename = "__KS_Power__/graphics/entity/petroleum-generator/hr-petroleum-generator-horizontal-base-shadow.png",
+            width = 548,
+            height = 256,
             frame_count = 1,
-            repeat_count = 16,
-            shift = util.by_pixel(16, -13),
+            repeat_count = 14,
+            shift = {0.5, -0.4},
             animation_speed = 0.5,
+            scale = 0.5,
             draw_as_shadow = true,
-            hr_version = {
-              filename = "__KS_Power__/graphics/entity/petroleum-generator/hr-petroleum-generator-horizontal-base-shadow.png",
-              width = 548,
-              height = 256,
-              frame_count = 1,
-              repeat_count = 16,
-              shift = {0.5, -0.4},
-              animation_speed = 0.5,
-              scale = 0.5,
-              draw_as_shadow = true,
-            }
           },
           {
-            filename = "__KS_Power__/graphics/entity/petroleum-generator/petroleum-generator-horizontal-anim.png",
-            width = 224,
-            height = 128,
+            filename = "__KS_Power__/graphics/entity/petroleum-generator/hr-petroleum-generator-horizontal-anim.png",
+            width = 448,
+            height = 256,
             frame_count = 8,
             line_length = 4,
             shift = util.by_pixel(0, -13),
             animation_speed = 0.5,
+            scale = 0.5,
             run_mode = "forward-then-backward",
             draw_as_glow = true,
-            hr_version = {
-              filename = "__KS_Power__/graphics/entity/petroleum-generator/hr-petroleum-generator-horizontal-anim.png",
-              width = 448,
-              height = 256,
-              frame_count = 8,
-              line_length = 4,
-              shift = util.by_pixel(0, -13),
-              animation_speed = 0.5,
-              scale = 0.5,
-              run_mode = "forward-then-backward",
-              draw_as_glow = true,
-            }
           },
         }
       },
@@ -138,61 +106,34 @@ data:extend(
       {
         layers = {
           {
-            filename = "__KS_Power__/graphics/entity/petroleum-generator/petroleum-generator-vertical-base.png",
-            width = 128,
-            height = 224,
+            filename = "__KS_Power__/graphics/entity/petroleum-generator/hr-petroleum-generator-vertical-base.png",
+            width = 256,
+            height = 448,
             frame_count = 1,
             repeat_count = 8,
             animation_speed = 0.5,
-            hr_version = {
-              filename = "__KS_Power__/graphics/entity/petroleum-generator/hr-petroleum-generator-vertical-base.png",
-              width = 256,
-              height = 448,
-              frame_count = 1,
-              repeat_count = 8,
-              animation_speed = 0.5,
-              scale = 0.5,
-            }
+            scale = 0.5,
           },
           {
-            filename = "__KS_Power__/graphics/entity/petroleum-generator/petroleum-generator-vertical-base-shadow.png",
-            width = 128,
-            height = 224,
+            filename = "__KS_Power__/graphics/entity/petroleum-generator/hr-petroleum-generator-vertical-base-shadow.png",
+            width = 256,
+            height = 448,
             frame_count = 1,
             repeat_count = 8,
             shift = util.by_pixel(25, 0),
             animation_speed = 0.5,
+            scale = 0.5,
             draw_as_shadow = true,
-            hr_version = {
-              filename = "__KS_Power__/graphics/entity/petroleum-generator/hr-petroleum-generator-vertical-base-shadow.png",
-              width = 256,
-              height = 448,
-              frame_count = 1,
-              repeat_count = 8,
-              shift = util.by_pixel(25, 0),
-              animation_speed = 0.5,
-              scale = 0.5,
-              draw_as_shadow = true,
-            }
           },
           {
-            filename = "__KS_Power__/graphics/entity/petroleum-generator/petroleum-generator-vertical-anim.png",
-            width = 128,
-            height = 224,
+            filename = "__KS_Power__/graphics/entity/petroleum-generator/hr-petroleum-generator-vertical-anim.png",
+            width = 256,
+            height = 448,
             frame_count = 8,
             line_length = 4,
             animation_speed = 0.5,
-            draw_as_glow = true,
-            hr_version = {
-              filename = "__KS_Power__/graphics/entity/petroleum-generator/hr-petroleum-generator-vertical-anim.png",
-              width = 256,
-              height = 448,
-              frame_count = 8,
-              line_length = 4,
-              animation_speed = 0.5,
-              scale = 0.5,
-              draw_as_glow = true,
-            }
+            scale = 0.5,
+            draw_as_glow = true
           },
         },
       },
@@ -267,9 +208,7 @@ data:extend(
         tertiary = {r = 0.5, g = 0.4, b = 0},
         quaternary = {r = 0.5, g = 0.4, b = 0}
       },
-      results = {
-        {type = "fluid", name = "diesel-fuel", amount = 30, temperature = 25}
-      },
+      results = {{type = "fluid", name = "diesel-fuel", amount = 30, temperature = 25}},
       main_product = "",
       icon = "__KS_Power__/graphics/icons/diesel-fuel-recipe-icon.png",
       icon_size = 64,
@@ -305,7 +244,7 @@ data:extend(
       default_temperature = 0,
       max_temperature = 25,
       auto_barrel = true,
-      heat_capacity = "1KJ",
+      heat_capacity = "1kJ",
       base_color = {r = 0.8, g = 0.7, b = 0},
       flow_color = {r = 0.5, g = 0.4, b = 0},
       icon = "__KS_Power__/graphics/icons/diesel-fuel-icon.png",

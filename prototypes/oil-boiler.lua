@@ -15,28 +15,18 @@ local function makelayer_boiler(direction, layer)
     line_length = 8
     repeat_count = 1
   end
-  return {
-    filename = "__KS_Power__/graphics/entity/oil-steam-boiler/oil-steam-boiler-" .. direction .. "-" .. type .. ".png",
-    width = 128,
-    height = 128,
+  return
+  {
+    filename = "__KS_Power__/graphics/entity/oil-steam-boiler/hr-oil-steam-boiler-" .. direction .. "-" .. type .. ".png",
+    width = 256,
+    height = 256,
     frame_count = frame_count,
     line_length = line_length,
     repeat_count = repeat_count,
     animation_speed = 0.4,
     shift = {hshift, 0},
+    scale = 0.5,
     draw_as_shadow = draw_as_shadow,
-    hr_version = {
-      filename = "__KS_Power__/graphics/entity/oil-steam-boiler/hr-oil-steam-boiler-" .. direction .. "-" .. type .. ".png",
-      width = 256,
-      height = 256,
-      frame_count = frame_count,
-      line_length = line_length,
-      repeat_count = repeat_count,
-      animation_speed = 0.4,
-      shift = {hshift, 0},
-      scale = 0.5,
-      draw_as_shadow = draw_as_shadow,
-    }
   }
 end
 
@@ -60,12 +50,12 @@ end
     energy_required = 15,
     ingredients =
     {
-      {"copper-plate", 16},
-      {"steel-plate", 12},
-      {"pipe", 10},
-      {"concrete", 6},
+      {type = "item", name = "copper-plate", amount = 16},
+      {type = "item", name = "steel-plate", amount = 12},
+      {type = "item", name = "pipe", amount = 10},
+      {type = "item", name = "concrete", amount = 6},
     },
-    result = "oil-steam-boiler"
+    results = {{type = "item", name = "oil-steam-boiler", amount = 1}}
   },
   {
     type = "boiler",
@@ -99,25 +89,21 @@ end
     target_temperature = 165,
     fluid_box =
     {
-      base_area = 1,
-      height = 2,
-      base_level = -1,
+      volume = 100,
       pipe_covers = pipecoverspictures(),
       --pipe_picture = pipepictures(),
-      pipe_connections = {{ type="input", position = {1, -2} }},
+      pipe_connections = {{ flow_direction="input", position = {1, -1}, direction = defines.direction.north }},
       production_type = "input",
       filter = "water",
     },
     output_fluid_box =
     {
-      base_area = 1,
-      height = 2,
-      base_level = 1,
+      volume = 100,
       pipe_covers = pipecoverspictures(),
       --pipe_picture = pipepictures(),
       pipe_connections =
       {
-        {type = "output", position = {0, 2}}
+        {flow_direction = "output", position = {0, 1}, direction = defines.direction.south}
       },
       production_type = "output",
       filter = "steam",
@@ -126,19 +112,17 @@ end
     energy_source =
     {
       type = "fluid",
-      emissions_per_minute = 20,
+      emissions_per_minute = {pollution = 20},
       burns_fluid = true,
       fluid_usage_per_tick = 0,
       scale_fluid_usage = true,
       light_flicker = {color = {0,0,0}},
       fluid_box =
       {
-        base_area = 1,
-        height = 2,
-        base_level = -1,
+        volume = 100,
         pipe_covers = pipecoverspictures(),
         --pipe_picture = pipepictures(),
-        pipe_connections = {{ type="input", position = {-1, -2} }},
+        pipe_connections = {{flow_direction = "input", position = {-1, -1}, direction = defines.direction.north}},
         production_type = "input",
       },
       smoke =
@@ -182,35 +166,43 @@ end
       max_sounds_per_type = 2,
     },
 
-    structure =
+    pictures =
     {
-      north = {
+      north = {structure = {
+
         layers = {
           makelayer_boiler("n"),
           makelayer_boiler("n", "shadow"),
           makelayer_boiler("n", "anim"),
         }
+      }
       },
-      east = {
+      east = {structure = {
+
         layers = {
           makelayer_boiler("e"),
           makelayer_boiler("e", "shadow"),
           makelayer_boiler("e", "anim"),
         }
+      }
       },
-      south = {
+      south = {structure = {
+
         layers = {
           makelayer_boiler("s"),
           makelayer_boiler("s", "shadow"),
           makelayer_boiler("s", "anim"),
         }
+      }
       },
-      west = {
+      west = {structure = {
+
         layers = {
           makelayer_boiler("w"),
           makelayer_boiler("w", "shadow"),
           makelayer_boiler("w", "anim"),
         }
+      }
       },
     },
     fire = {},

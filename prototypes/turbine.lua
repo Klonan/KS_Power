@@ -15,15 +15,14 @@ data:extend({
     type = "recipe",
     name = "wind-turbine-2",
     energy_required = 4,
-    enabled = "true",
+    enabled = true,
     ingredients =
     {
-      {"iron-plate", 8},
-      {"iron-gear-wheel", 4},
-      {"copper-cable", 8},
-      {"iron-stick", 5}
+      {type = "item", name = "iron-plate", amount = 8},
+      {type = "item", name = "iron-gear-wheel", amount = 4},
+      {type = "item", name = "copper-cable", amount = 8}
     },
-    result = "wind-turbine-2"
+    results = {{type = "item", name = "wind-turbine-2", amount = 1}},
   },
 
   {
@@ -53,44 +52,25 @@ data:extend({
     animation = {
       layers = {
         {
-          filename = "__KS_Power__/graphics/entity/wind-turbine-2/wind-turbine-2-anim.png",
-          width = 175,
-          height = 175,
+          filename = "__KS_Power__/graphics/entity/wind-turbine-2/hr-wind-turbine-2-anim.png",
+          width = 350,
+          height = 350,
+          scale = 0.5,
           frame_count = 20,
           line_length = 5,
           shift = {1.7,-1.4},
           animation_speed = 1,
-          hr_version = {
-            filename = "__KS_Power__/graphics/entity/wind-turbine-2/hr-wind-turbine-2-anim.png",
-            width = 350,
-            height = 350,
-            scale = 0.5,
-            frame_count = 20,
-            line_length = 5,
-            shift = {1.7,-1.4},
-            animation_speed = 1,
-          },
         },
         {
-          filename = "__KS_Power__/graphics/entity/wind-turbine-2/wind-turbine-2-anim-shadow.png",
-          width = 175,
-          height = 175,
+          filename = "__KS_Power__/graphics/entity/wind-turbine-2/hr-wind-turbine-2-anim-shadow.png",
+          width = 350,
+          height = 350,
+          scale = 0.5,
           frame_count = 20,
           line_length = 5,
           shift = {1.7,-1.4},
           animation_speed = 1,
           draw_as_shadow = true,
-          hr_version = {
-            filename = "__KS_Power__/graphics/entity/wind-turbine-2/hr-wind-turbine-2-anim-shadow.png",
-            width = 350,
-            height = 350,
-            scale = 0.5,
-            frame_count = 20,
-            line_length = 5,
-            shift = {1.7,-1.4},
-            animation_speed = 1,
-            draw_as_shadow = true,
-          },
         },
       }
     },

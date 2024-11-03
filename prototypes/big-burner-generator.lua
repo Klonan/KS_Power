@@ -3,32 +3,19 @@ local burner_picture =
   layers =
   {
     {
-      filename = "__KS_Power__/graphics/entity/big-burner-generator/big-burner-generator.png",
-      width = 320,
-      height = 320,
-      shift = { -0.03125 *2, -0.1875 *2 },
-      hr_version = {
-        filename = "__KS_Power__/graphics/entity/big-burner-generator/hr-big-burner-generator.png",
-        width = 640,
-        height = 640,
-        scale = 0.5,
-        shift = { -0.03125 *2, -0.1875 *2 },
-      }
+      filename = "__KS_Power__/graphics/entity/big-burner-generator/hr-big-burner-generator.png",
+      width = 640,
+      height = 640,
+      scale = 0.5,
+      shift = { -0.03125 *2, -0.1875 *2 }
     },
     {
-      filename = "__KS_Power__/graphics/entity/big-burner-generator/big-burner-generator-shadow.png",
-      width = 525,
-      height = 323,
+      filename = "__KS_Power__/graphics/entity/big-burner-generator/hr-big-burner-generator-shadow.png",
+      width = 525*2,
+      height = 323*2,
+      scale = 0.5,
       shift = { 1.625 * 2, 0 },
-      draw_as_shadow = true,
-      hr_version = {
-        filename = "__KS_Power__/graphics/entity/big-burner-generator/hr-big-burner-generator-shadow.png",
-        width = 525*2,
-        height = 323*2,
-        scale = 0.5,
-        shift = { 1.625 * 2, 0 },
-        draw_as_shadow = true,
-      }
+      draw_as_shadow = true
     }
   }
 }
@@ -52,12 +39,12 @@ data:extend({
     enabled = false,
     ingredients =
     {
-      {"heat-exchanger", 4},
-      {"steel-plate", 50},
-      {"concrete", 100},
-      {"pump", 10}
+      {type = "item", name = "heat-exchanger", amount = 4},
+      {type = "item", name = "steel-plate", amount = 50},
+      {type = "item", name = "concrete", amount = 100},
+      {type = "item", name = "pump", amount = 10}
     },
-    result = "big-burner-generator"
+    results = {{type = "item", name = "big-burner-generator", amount = 1}}
   },
   {
     type = "burner-generator",
@@ -88,7 +75,7 @@ data:extend({
       type = "burner",
       fuel_inventory_size = 5,
       effectivity = 0.5,
-      emissions_per_minute = 1000,
+      emissions_per_minute = {pollution = 1000},
       light_flicker = {intensity = 0.2, minimum_light_size = 1, color = {r=1.0, g=0.7, b=0.7, a=0.2}},
       smoke =
       {
@@ -179,10 +166,10 @@ data:extend({
     {
       filename = "__base__/graphics/entity/flamethrower-fire-stream/flamethrower-explosion.png",
       priority = "extra-high",
-      width = 64,
-      height = 64,
-      frame_count = 32,
-      line_length = 8,
+      line_length = 6,
+      width = 124,
+      height = 108,
+      frame_count = 36,
       scale = 0.5,
       animation_speed = 32 / 100,
       blend_mode = "additive",

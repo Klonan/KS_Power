@@ -1,5 +1,57 @@
 require "util"
 
+local north_animation =
+{
+  layers =
+  {
+    {
+      filename = "__KS_Power__/graphics/entity/burner-generator/hr-burner-generator-h.png",
+      priority = "extra-high",
+      width = 241,
+      height = 160,
+      scale = 0.5,
+      shift = util.by_pixel(0, 4),
+      frame_count = 1,
+    },
+    {
+      filename = "__KS_Power__/graphics/entity/burner-generator/hr-burner-generator-h-shadow.png",
+      priority = "extra-high",
+      width = 241,
+      height = 160,
+      scale = 0.5,
+      shift = util.by_pixel(20, 4),
+      frame_count = 1,
+      draw_as_shadow = true,
+    },
+  }
+}
+
+local east_animation =
+{
+  layers =
+  {
+    {
+      filename = "__KS_Power__/graphics/entity/burner-generator/hr-burner-generator-v.png",
+      priority = "extra-high",
+      width = 186,
+      height = 224,
+      scale = 0.5,
+      shift = util.by_pixel(0, -0.5),
+      frame_count = 1,
+    },
+    {
+      filename = "__KS_Power__/graphics/entity/burner-generator/hr-burner-generator-v-shadow.png",
+      priority = "extra-high",
+      width = 186,
+      height = 224,
+      scale = 0.5,
+      shift = util.by_pixel(12, -0.5),
+      frame_count = 1,
+      draw_as_shadow = true,
+    },
+  }
+}
+
 local north_smoke = {-0.05, 0.8}
 local east_smoke = {-0.1, 0.7}
 data:extend({
@@ -18,15 +70,15 @@ data:extend({
   {
     type = "recipe",
     name = "burner-generator",
-    enabled = "true",
+    enabled = true,
     ingredients =
     {
-      {"boiler", 1},
-      {"iron-plate", 4},
-      {"iron-gear-wheel", 5},
-      {"pipe", 4}
+      {type = "item", name = "boiler", amount = 1},
+      {type = "item", name = "iron-plate", amount = 4},
+      {type = "item", name = "iron-gear-wheel", amount = 5},
+      {type = "item", name = "pipe", amount = 4}
     },
-    result = "burner-generator"
+    results = {{type = "item", name = "burner-generator", amount = 1}}
   },
   {
     type = "burner-generator",
@@ -57,7 +109,7 @@ data:extend({
       type = "burner",
       fuel_inventory_size = 2,
       effectivity = 0.25,
-      emissions_per_minute = 30,
+      emissions_per_minute = {pollution = 30},
       light_flicker = {color = {0,0,0}},
       smoke =
       {
@@ -85,90 +137,10 @@ data:extend({
     },
     animation =
     {
-      north =
-      {
-        layers =
-        {
-          {
-            filename = "__KS_Power__/graphics/entity/burner-generator/burner-generator-h.png",
-            priority = "extra-high",
-            width = 121,
-            height = 80,
-            shift = util.by_pixel(0, 4),
-            frame_count = 1,
-            hr_version = {
-              filename = "__KS_Power__/graphics/entity/burner-generator/hr-burner-generator-h.png",
-              priority = "extra-high",
-              width = 241,
-              height = 160,
-              scale = 0.5,
-              shift = util.by_pixel(0, 4),
-              frame_count = 1,
-            }
-          },
-          {
-            filename = "__KS_Power__/graphics/entity/burner-generator/burner-generator-h-shadow.png",
-            priority = "extra-high",
-            width = 121,
-            height = 80,
-            shift = util.by_pixel(20, 4),
-            frame_count = 1,
-            draw_as_shadow = true,
-            hr_version = {
-              filename = "__KS_Power__/graphics/entity/burner-generator/hr-burner-generator-h-shadow.png",
-              priority = "extra-high",
-              width = 241,
-              height = 160,
-              scale = 0.5,
-              shift = util.by_pixel(20, 4),
-              frame_count = 1,
-              draw_as_shadow = true,
-            }
-          },
-        }
-      },
-      east =
-      {
-        layers =
-        {
-          {
-            filename = "__KS_Power__/graphics/entity/burner-generator/burner-generator-v.png",
-            priority = "extra-high",
-            width = 93,
-            height = 112,
-            shift = util.by_pixel(0, -0.5),
-            frame_count = 1,
-            hr_version = {
-              filename = "__KS_Power__/graphics/entity/burner-generator/hr-burner-generator-v.png",
-              priority = "extra-high",
-              width = 186,
-              height = 224,
-              scale = 0.5,
-              shift = util.by_pixel(0, -0.5),
-              frame_count = 1,
-            }
-          },
-          {
-            filename = "__KS_Power__/graphics/entity/burner-generator/burner-generator-v-shadow.png",
-            priority = "extra-high",
-            width = 93,
-            height = 112,
-            shift = util.by_pixel(12, -0.5),
-            frame_count = 1,
-            draw_as_shadow = true,
-            hr_version = {
-              filename = "__KS_Power__/graphics/entity/burner-generator/hr-burner-generator-v-shadow.png",
-              priority = "extra-high",
-              width = 186,
-              height = 224,
-              scale = 0.5,
-              shift = util.by_pixel(12, -0.5),
-              frame_count = 1,
-              draw_as_shadow = true,
-            }
-          },
-        }
-      }
+      north = north_animation,
+      south = north_animation,
+      east = east_animation,
+      west = east_animation
     },
     working_sound =
     {
@@ -202,10 +174,10 @@ data:extend({
     {
       filename = "__base__/graphics/entity/flamethrower-fire-stream/flamethrower-explosion.png",
       priority = "extra-high",
-      width = 64,
-      height = 64,
-      frame_count = 32,
-      line_length = 8,
+      line_length = 6,
+      width = 124,
+      height = 108,
+      frame_count = 36,
       scale = 0.20,
       animation_speed = 32 / 200,
       blend_mode = "additive",
