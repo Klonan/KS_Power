@@ -89,7 +89,6 @@ data:extend({
     minable = {mining_time = 1, result = "burner-generator"},
     max_health = 300,
     corpse = "small-remnants",
-    effectivity = 0.25,
     resistances =
     {
       {
@@ -142,6 +141,7 @@ data:extend({
       east = east_animation,
       west = east_animation
     },
+    impact_category = "metal",
     working_sound =
     {
       sound =
@@ -151,20 +151,18 @@ data:extend({
       },
       match_speed_to_activity = true,
     },
-    min_perceived_performance = 0.25,
-    performance_to_sound_speedup = 0.5,
+    perceived_performance = {minimum = 0.25, performance_to_activity_rate = 2},
     max_power_output = "0.5MW",
   },
 
   {
     type = "trivial-smoke",
     name = "burner-generator-smoke",
-    flags = {"not-on-map"},
     duration = 50,
     fade_in_duration = 5,
     fade_away_duration = 30,
     spread_duration = 200,
-    slow_down_factor = 0.5,
+    movement_slow_down_factor = 0.5,
     start_scale = 1,
     end_scale = 0,
     color = {r = 1, g = 0.5, b = 0.5, a = 0.1},

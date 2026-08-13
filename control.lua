@@ -1,0 +1,2 @@
+-- Uncomment to run the self test on the next new game, results go to the log.
+--require("self_test")

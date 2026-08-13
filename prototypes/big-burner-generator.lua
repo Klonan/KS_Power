@@ -55,7 +55,6 @@ data:extend({
     minable = {mining_time = 1, result = "big-burner-generator"},
     max_health = 3000,
     corpse = "small-remnants",
-    effectivity = 1,
     resistances =
     {
       {
@@ -90,7 +89,7 @@ data:extend({
           starting_vertical_speed = 0.02,
           starting_vertical_speed_deviation = 0.03,
           starting_frame_deviation = 3,
-          slow_down_factor = 0.1
+          vertical_speed_slowdown = 0.1
         },
         {
           name = "big-burner-generator-smoke",
@@ -103,11 +102,12 @@ data:extend({
           starting_vertical_speed = 0.01,
           starting_vertical_speed_deviation = 0.01,
           starting_frame_deviation = 3,
-          slow_down_factor = 0.1
+          vertical_speed_slowdown = 0.1
         },
       }
     },
     animation = burner_picture,
+    impact_category = "metal-large",
     working_sound =
     {
       sound =
@@ -117,8 +117,7 @@ data:extend({
       },
       match_speed_to_activity = true,
     },
-    min_perceived_performance = 0.25,
-    performance_to_sound_speedup = 0.5,
+    perceived_performance = {minimum = 0.25, performance_to_activity_rate = 2},
     max_power_output = "50MW",
   },
 
@@ -151,12 +150,11 @@ data:extend({
   {
     type = "trivial-smoke",
     name = "big-burner-generator-smoke",
-    flags = {"not-on-map"},
     duration = 170,
     fade_in_duration = 20,
     fade_away_duration = 100,
     spread_duration = 200,
-    slow_down_factor = 0.5,
+    movement_slow_down_factor = 0.5,
     start_scale = 1,
     end_scale = 0,
     color = {r = 1, g = 0.4, b = 0.4, a = 0.1},

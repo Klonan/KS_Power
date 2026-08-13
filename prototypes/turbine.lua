@@ -31,12 +31,12 @@ data:extend({
     icon = "__KS_Power__/graphics/icons/wind_turbine_icon.png",
     icon_size = 64,
     flags = {"placeable-neutral", "player-creation", "not-rotatable"},
-    minable = {hardness = 0.2, mining_time = 0.5, result = "wind-turbine-2"},
+    minable = {mining_time = 0.5, result = "wind-turbine-2"},
     max_health = 50,
     corpse = "medium-remnants",
     collision_box = {{-0.6, -0.6}, {0.6, 0.6}},
 		selection_box = {{-0.8, -0.8}, {0.8, 0.8}},
-		drawing_box = {{-0.5, -3}, {3.2, 0.5}},
+		drawing_box_vertical_extension = 2.2,
     energy_source =
     {
       type = "electric",
@@ -74,7 +74,7 @@ data:extend({
         },
       }
     },
-    vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65},
+    impact_category = "metal",
     working_sound =
     {
       sound =
@@ -87,7 +87,7 @@ data:extend({
         filename = "__base__/sound/train-wheels.ogg",
         volume = 0.4
       },
-      max_sounds_per_type = 3
+      max_sounds_per_prototype = 3
     },
   },
 

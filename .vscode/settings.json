@@ -3,6 +3,10 @@
     {
       "name": "Factorio run",
       "factorioPath": "c:\\Factorio\\bin\\Releasex64vsbt\\factorio-run.exe"
+    },
+    {
+      "name": "Factorio Fetched",
+      "factorioPath": "c:\\Factorio\\bin\\fetched\\factorio.exe"
     }
   ],
   "Lua.diagnostics.disable": [

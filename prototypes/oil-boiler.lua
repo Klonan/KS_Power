@@ -69,7 +69,7 @@ end
     dying_explosion = "big-explosion",
     collision_box = {{-1.2, -1.2}, {1.2, 1.2}},
     selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
-    vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
+    impact_category = "metal-large",
     mode = "output-to-separate-pipe",
     resistances =
     {
@@ -136,7 +136,7 @@ end
           frequency = 40,
           starting_vertical_speed = 0.06,
           starting_vertical_speed_deviation = 0.1,
-          slow_down_factor = 1,
+          vertical_speed_slowdown = 1,
           starting_frame_deviation = 60,
           starting_frame = 5,
         },
@@ -149,7 +149,7 @@ end
           frequency = 20,
           starting_vertical_speed = 0.06,
           starting_vertical_speed_deviation = 0.1,
-          slow_down_factor = 1,
+          vertical_speed_slowdown = 1,
           starting_frame_deviation = 60,
           starting_frame = 5,
         },
@@ -163,7 +163,7 @@ end
         volume = 0.35
       },
       idle_sound = { filename = "__KS_Power__/sounds/steam-offlet.ogg", volume = 0.35 },
-      max_sounds_per_type = 2,
+      max_sounds_per_prototype = 2,
     },
 
     pictures =
@@ -205,8 +205,6 @@ end
       }
       },
     },
-    fire = {},
-    fire_glow = {},
     burning_cooldown = 20
   },
   {

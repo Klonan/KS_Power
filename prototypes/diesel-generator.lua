@@ -63,78 +63,88 @@ data:extend(
         usage_priority = "secondary-output",
         emissions_per_minute = {pollution = 50},
       },
-      vehicle_impact_sound = {filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65},
-      horizontal_animation =
+      impact_category = "metal-large",
+      two_direction_only = true,
+      pictures =
       {
-        layers = {
+        north =
+        {
+          animation =
           {
-            filename = "__KS_Power__/graphics/entity/petroleum-generator/hr-petroleum-generator-horizontal-base.png",
-            width = 548,
-            height = 256,
-            frame_count = 1,
-            repeat_count = 14,
-            shift = util.by_pixel(0, -13),
-            animation_speed = 0.5,
-            scale = 0.5,
-          },
+            layers = {
+              {
+                filename = "__KS_Power__/graphics/entity/petroleum-generator/hr-petroleum-generator-vertical-base.png",
+                width = 256,
+                height = 448,
+                frame_count = 1,
+                repeat_count = 8,
+                animation_speed = 0.5,
+                scale = 0.5,
+              },
+              {
+                filename = "__KS_Power__/graphics/entity/petroleum-generator/hr-petroleum-generator-vertical-base-shadow.png",
+                width = 256,
+                height = 448,
+                frame_count = 1,
+                repeat_count = 8,
+                shift = util.by_pixel(25, 0),
+                animation_speed = 0.5,
+                scale = 0.5,
+                draw_as_shadow = true,
+              },
+              {
+                filename = "__KS_Power__/graphics/entity/petroleum-generator/hr-petroleum-generator-vertical-anim.png",
+                width = 256,
+                height = 448,
+                frame_count = 8,
+                line_length = 4,
+                animation_speed = 0.5,
+                scale = 0.5,
+                draw_as_glow = true
+              },
+            },
+          }
+        },
+        east =
+        {
+          animation =
           {
-            filename = "__KS_Power__/graphics/entity/petroleum-generator/hr-petroleum-generator-horizontal-base-shadow.png",
-            width = 548,
-            height = 256,
-            frame_count = 1,
-            repeat_count = 14,
-            shift = {0.5, -0.4},
-            animation_speed = 0.5,
-            scale = 0.5,
-            draw_as_shadow = true,
-          },
-          {
-            filename = "__KS_Power__/graphics/entity/petroleum-generator/hr-petroleum-generator-horizontal-anim.png",
-            width = 448,
-            height = 256,
-            frame_count = 8,
-            line_length = 4,
-            shift = util.by_pixel(0, -13),
-            animation_speed = 0.5,
-            scale = 0.5,
-            run_mode = "forward-then-backward",
-            draw_as_glow = true,
-          },
-        }
-      },
-      vertical_animation =
-      {
-        layers = {
-          {
-            filename = "__KS_Power__/graphics/entity/petroleum-generator/hr-petroleum-generator-vertical-base.png",
-            width = 256,
-            height = 448,
-            frame_count = 1,
-            repeat_count = 8,
-            animation_speed = 0.5,
-            scale = 0.5,
-          },
-          {
-            filename = "__KS_Power__/graphics/entity/petroleum-generator/hr-petroleum-generator-vertical-base-shadow.png",
-            width = 256,
-            height = 448,
-            frame_count = 1,
-            repeat_count = 8,
-            shift = util.by_pixel(25, 0),
-            animation_speed = 0.5,
-            scale = 0.5,
-            draw_as_shadow = true,
-          },
-          {
-            filename = "__KS_Power__/graphics/entity/petroleum-generator/hr-petroleum-generator-vertical-anim.png",
-            width = 256,
-            height = 448,
-            frame_count = 8,
-            line_length = 4,
-            animation_speed = 0.5,
-            scale = 0.5,
-            draw_as_glow = true
-          },
+            layers = {
+              {
+                filename = "__KS_Power__/graphics/entity/petroleum-generator/hr-petroleum-generator-horizontal-base.png",
+                width = 548,
+                height = 256,
+                frame_count = 1,
+                repeat_count = 14,
+                shift = util.by_pixel(0, -13),
+                animation_speed = 0.5,
+                scale = 0.5,
+              },
+              {
+                filename = "__KS_Power__/graphics/entity/petroleum-generator/hr-petroleum-generator-horizontal-base-shadow.png",
+                width = 548,
+                height = 256,
+                frame_count = 1,
+                repeat_count = 14,
+                shift = {0.5, -0.4},
+                animation_speed = 0.5,
+                scale = 0.5,
+                draw_as_shadow = true,
+              },
+              {
+                filename = "__KS_Power__/graphics/entity/petroleum-generator/hr-petroleum-generator-horizontal-anim.png",
+                width = 448,
+                height = 256,
+                frame_count = 8,
+                line_length = 4,
+                shift = util.by_pixel(0, -13),
+                animation_speed = 0.5,
+                scale = 0.5,
+                run_mode = "forward-then-backward",
+                draw_as_glow = true,
+              },
+            }
+          }
         },
       },
       smoke = {
@@ -149,7 +159,7 @@ data:extend(
           frequency = 10 / 32,
           starting_vertical_speed = 0.06,
           starting_vertical_speed_deviation = 0.1,
-          slow_down_factor = 1,
+          vertical_speed_slowdown = 1,
           starting_frame_deviation = 60,
           starting_frame = 5,
         },
@@ -164,11 +174,9 @@ data:extend(
           frequency = 10 / 32,
           starting_vertical_speed = 0.06,
           starting_vertical_speed_deviation = 0.1,
-          slow_down_factor = 1,
+          vertical_speed_slowdown = 1,
           starting_frame_deviation = 10,
-          starting_frame = 5,
-          starting_frame_speed = 1,
-          starting_frame_speed_deviation = 0.5
+          starting_frame = 5
         }
       },
       working_sound = {
@@ -187,15 +195,14 @@ data:extend(
           }
         },
         match_speed_to_activity = true,
-        max_sounds_per_type = 2
+        max_sounds_per_prototype = 2
       },
-      min_perceived_performance = 0.4,
-      performance_to_sound_speedup = 0.2
+      perceived_performance = {minimum = 0.4, performance_to_activity_rate = 5}
     },
     {
       type = "recipe",
       name = "diesel-fuel",
-      category = "chemistry",
+      categories = {"chemistry"},
       enabled = false,
       energy_required = 5,
       ingredients = {
@@ -230,7 +237,7 @@ data:extend(
           recipe = "diesel-fuel"
         }
       },
-      prerequisites = {"advanced-oil-processing", "engine"},
+      prerequisites = {"advanced-oil-processing"},
       unit = {
         count = 150,
         ingredients = {{"automation-science-pack", 1}, {"logistic-science-pack", 1}, {"chemical-science-pack", 1}},
@@ -249,9 +256,7 @@ data:extend(
       flow_color = {r = 0.5, g = 0.4, b = 0},
       icon = "__KS_Power__/graphics/icons/diesel-fuel-icon.png",
       icon_size = 64,
-      order = "a[fluid]-i[diesel-fuel]",
-      pressure_to_speed_ratio = 0.4,
-      flow_to_energy_ratio = 0.59
+      order = "a[fluid]-i[diesel-fuel]"
     }
   }
 )

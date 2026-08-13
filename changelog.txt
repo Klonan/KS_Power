@@ -1,4 +1,15 @@
 ---------------------------------------------------------------------------------------------------
+Version: 2.1.0
+Date: 2026-08-13
+  Changes:
+    - 2.1 update.
+  Bugfixes:
+    - Fixed that the diesel generator was drawn with no graphics, it was still using the pre 2.0 animation definition.
+    - Fixed that the diesel generator, oil boiler and wind turbine had no impact sound when driven into.
+    - Fixed that the smoke of the burner generators, diesel generator and oil boiler ignored its slow down settings.
+    - Fixed that the burner generators and diesel generator ignored their perceived performance settings.
+    - Fixed that the wind turbine was drawn cut off when scrolled to the edge of the screen.
+---------------------------------------------------------------------------------------------------
 Version: 2.0.0
 Date: 2024-11-03
   Bugfixes:
